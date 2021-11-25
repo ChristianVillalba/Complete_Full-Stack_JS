@@ -18,7 +18,10 @@ So all browsers have a slightly different interpretation.
 ## Set Up Environment:
 
 #### Downloading and installing Node.js and NPM:
-`npm install -g npm`
+* Downloading Node:    
+ [Node JS](https://nodejs.org/en/) (LTS)
+* Downloading NPM:    
+ `npm install -g npm`
 
 #### Checking Node and NPM versions:
 * Check my Node version using:    
@@ -32,3 +35,11 @@ So all browsers have a slightly different interpretation.
  [Node JS - Downloads](https://nodejs.org/en/)
 * Update my NPM version using:    
  `npm install -g npm`
+ 
+ ## Install node libraries:
+ 
+ * Globally to the system:        
+ It's just an application that you've installed to your computer using Node       
+ `npm install -g my_package_name`
+ 
+ 
