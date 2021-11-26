@@ -19,7 +19,7 @@ So all browsers have a slightly different interpretation.
 
 #### Downloading and installing Node.js and NPM:
 * Downloading Node:    
- [Node JS](https://nodejs.org/en/) (LTS)
+ [Node JS](https://nodejs.org/en/)
 * Downloading NPM:    
  `npm install -g npm`
 
@@ -40,6 +40,11 @@ So all browsers have a slightly different interpretation.
  
  * Globally to the system:        
  It's just an application that you've installed to your computer using Node       
+ It's not part of a project, it's not a project dependency       
  `npm install -g my_package_name`
  
+  * Directly into a project:        
+ Projects directory that does have a package.json file
+ It's a N ode project and so you can install directly into that project.       
+ `npm install -g create-react-app`
  
