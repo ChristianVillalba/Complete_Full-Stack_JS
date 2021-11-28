@@ -1,7 +1,7 @@
 # Demo: 
 Our first created project:
 
-### The project structure:
+## The project structure:
 
 #### node_modules
 
@@ -25,7 +25,56 @@ We want this to be updated so that our peers and coworkers can just in this dire
 This command will go through dependencies, dev dependencies, and it will update or       
 install accordingly to what packages are listed in this json file.
 
-we install react-router using the command
-In our Demo project, in order to install a package that's not here and save it,
+we install **react-router** using the command
+In our Demo project, in order to install a package that's not here and save it, we use:
 `npm install react-router --save`
+We can see in our **package.json** file, that in the section **"dependencies"**,           
+the package **react-router** has been added with the latest version.       
+
+Our **package.json** is kind of the current state of what's in node modules and what's required.
+We are never going to touch this except:
+* We have a conflict
+* Some package is not working (delete and reinstall)
+
+#### .gitignore
+When we push to GitHub repositories, it ignores certain files so we won't push them.      
+The names of the files included here will be the ignored files.        
+eg: /node_modules
+
+### public
+
+The public directory is used for content CSS, favicons, images        
+and HTML and its mount point called "**root**"  
+
+### src
+
+The src (source) directory is where all the react goodness exists
+
+#### index.js
+
+In ES6 ( JavaScript implementation) we can import from libraries,      
+eg: `import React from 'react';`      
+In this case, the `react` file that it's referencing here is it's exporting a JavaScript file.        
+In the React library itself, in node_modules > react, the files inside are being exported.
+
+We can also import from relative sources.
+eg: `import App from '/App';`    
+Here we are importing a component or class called App from the App(.js) file.       
+We don't need to add the extension.
+
+To be imported, our App Component must have an export Statement:      
+eg: `export default App` at the end in our App.js   
+
+We use, ReactDOM, to render a component (App) to an element("root").
+```javascript
+ReactDOM.render(
+    <App />,document.getElementById('root')
+);
+```
+
+## Run the application:
+
+`npm start`    
+This command is probably going to open a tab in your browser.      
+Once it compiles and loads, it will host it on local host port our application.     
 
