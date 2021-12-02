@@ -78,3 +78,22 @@ ReactDOM.render(
 This command is probably going to open a tab in your browser.      
 Once it compiles and loads, it will host it on local host port our application.     
 
+---
+---
+
+# Tutorial:
+
+This are the steps I followed in the tutorial in order to learn React:
+
+## Creating Components
+
+After check that my application run successfully          
+I deleted App.jsx & App.css and created Application.js      
+Here, I imported React and Components (from "react" library)     
+I created my Component Application that renders "Hello World"
+Finally I exported the Application Component
+
+In index.js, I imported the Application Component,     
+This component will be rendered when I run my React project.
+
+I used `npm start` to run my project.
