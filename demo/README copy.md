@@ -89,11 +89,17 @@ This are the steps I followed in the tutorial in order to learn React:
 
 After check that my application run successfully          
 I deleted App.jsx & App.css and created Application.js      
-Here, I imported React and Components (from "react" library)     
-I created my Component Application that renders "Hello World"
-Finally I exported the Application Component
+Here, I imported React and Components (from "react" library)       
+I created my Component Application that renders "Hello World"       
+Render can return strings or HTML content using ()        
+Finally I exported the Application Component.          
 
 In index.js, I imported the Application Component,     
-This component will be rendered when I run my React project.
+This component will be rendered when I run my React project.     
 
-I used `npm start` to run my project.
+I used `npm start` to run my project.     
+
+If we Inspect our Element Hello World,          
+It was mounted into the Div with ID "root".        
+
+
