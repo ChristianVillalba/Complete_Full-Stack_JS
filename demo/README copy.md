@@ -85,13 +85,12 @@ Once it compiles and loads, it will host it on local host port our application.
 
 This are the steps I followed in the tutorial in order to learn React:
 
-## Creating Components
+## Creating Components & Rendering
 
 After check that my application run successfully          
 I deleted App.jsx & App.css and created Application.js      
 Here, I imported React and Components (from "react" library)       
 I created my Component Application that renders "Hello World"       
-Render can return strings or HTML content using ()        
 Finally I exported the Application Component.          
 
 In index.js, I imported the Application Component,     
@@ -102,4 +101,22 @@ I used `npm start` to run my project.
 If we Inspect our Element Hello World,          
 It was mounted into the Div with ID "root".        
 
+### Render
+Render can return strings or HTML content using `()`      
+but only can render one single Parent Element,     
+This means, we need a **Div** to render more than one element.
+
+### Changes in our code
+If we make changes in our Application, there is no need to reload our page.      
+when we run `npm start` it loads in a **hot loader**,         
+which every time a change is detected it will recompile and then refresh any connected clients,         
+in this case, our browser.         
+In other worlds, this is automatically updated when I write new code and save it.
+
+### Printing Variables
+We can declare variables using ES6 (`let` & `const`)        
+In Application.js, we declare the var *name*       
+`let name = "Cristian";`          
+And to render this variable, we use `{}` inside our element:       
+`<p>This was created by: {name}</p>`
 

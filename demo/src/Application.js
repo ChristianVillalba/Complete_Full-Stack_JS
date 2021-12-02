@@ -2,8 +2,12 @@ import React, {Component} from "react";
 
 class Application extends Component {
     render(){
-        return (
+        let name = "Cristian";
+        return (    
+            <div>
             <h1>Hello World!</h1>
+            <p>This was created by: {name}</p>
+            </div>
         );
     }
 
