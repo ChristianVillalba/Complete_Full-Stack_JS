@@ -120,3 +120,25 @@ In Application.js, we declare the var *name*
 And to render this variable, we use `{}` inside our element:       
 `<p>This was created by: {name}</p>`
 
+## React: life-cycle
+
+The **life-cycle** of a Component is, a string of functions that get called to determine,         
+based on variable changes, whether something needs to be updated and re-rendered.    
+
+### Constructor 
+
+it can take in props argument,         
+and it can instantiate the parent class by running super with the props.
+
+```javascript
+class Application extends Component {
+    constructor(props){
+        super(props);
+    } ...
+```    
+This is going to only be run when the application component is instantiated,          
+not every time it re-renders.
+
+## The React State
+
+We can create methods that will get triggered during the life cycle of an application.
