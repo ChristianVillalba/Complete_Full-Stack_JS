@@ -168,3 +168,5 @@ We add to our button a property: `onClick` with our method: `handleClick`.
 
 We get that `count` variable into the render method.     
 `let {count} = this.state;` It gets the count variable from the state
+
+// GitHub test
