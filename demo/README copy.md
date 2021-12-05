@@ -135,10 +135,36 @@ class Application extends Component {
     constructor(props){
         super(props);
     } ...
+// This will produce a: warning  Useless constructor
 ```    
 This is going to only be run when the application component is instantiated,          
 not every time it re-renders.
 
 ## The React State
 
-We can create methods that will get triggered during the life cycle of an application.
+We can create methods that will get triggered during the life cycle of an application.      
+
+```javascript
+class Application extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            count: 0
+        }
+    }
+    handleClick = () => {
+        console.log("Clicked");
+
+    }
+...
+            <h3>You Clicked the button {count} times</h3>
+            <button onClick={(e)=> this.handleClick()}>Click Me</button>
+
+```   
+
+
+We're going to write a method here called `handleClick`.     
+We add to our button a property: `onClick` with our method: `handleClick`.     
+
+We get that `count` variable into the render method.     
+`let {count} = this.state;` It gets the count variable from the state
