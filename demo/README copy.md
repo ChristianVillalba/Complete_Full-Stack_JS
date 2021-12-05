@@ -185,3 +185,26 @@ The Object will be the new State that we want to set.
         this.setState({count: this.state.count +1});
     }
 ```
+
+## Components Props and Re-Rendering
+
+We create a new file: HighScore.js. This will be a new Component.      
+Ehen you embed a Component into our other Components, it's written like kind of a self-closing HTML element.       
+```javascript
+<HighScore />
+```
+
+className is actually reserved in JavaScript.         
+if we need to work with **classes** in React, we will use **className**.      
+
+In HighScore which is a self-closing element, we can create any property that we want. eg: `overTen`      
+```javascript
+<HighScore />
+```
+
+Using an if Statement:      
+Every component needs to return something from the render method.     
+Otherwise, it will produce an Error, however, we can return `null`.      
+
+Now in React, we can also pass integers, strings, or booleans.
+And we can also pass functions.
