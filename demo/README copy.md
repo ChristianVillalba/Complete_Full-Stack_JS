@@ -169,4 +169,19 @@ We add to our button a property: `onClick` with our method: `handleClick`.
 We get that `count` variable into the render method.     
 `let {count} = this.state;` It gets the count variable from the state
 
-// GitHub test
+`... onClick={(e)=> this.handleClick()}` if we don't add the Arrow Function,      
+handleC0lick will be activated immediately (without waiting for the event `(e)`).       
+We can also use the Arrow Function without `e` : `() => ...`
+
+### SetState 
+
+We want to update the count variable to how many times we've clicked the button.      
+There is a built-in method to the react Component called setState.      
+This takes an **Object** as a parameter and an optional **Callback**.         
+
+The Object will be the new State that we want to set.
+```javascript
+    handleClick = () => {
+        this.setState({count: this.state.count +1});
+    }
+```

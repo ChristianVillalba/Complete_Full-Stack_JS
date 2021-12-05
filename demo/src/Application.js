@@ -8,8 +8,7 @@ class Application extends Component {
         }
     }
     handleClick = () => {
-        console.log("Clicked");
-
+        this.setState({count: this.state.count +1});
     }
 
     render(){
