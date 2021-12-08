@@ -7,13 +7,26 @@ class App extends Component {
 
   render() {
     return (
-    <PageWrapper >
       <Router>
-      <Switch>
-          <Route path="/home" component={Home} />
-        </Switch>
+      <PageWrapper >   
+        <Route path="/" component={Home} />
+        <Route path="/about" render={()=>{
+          return(
+            <h1>I am the about Route</h1>
+          )
+        } } />
+        <Route path="/qwe" render={()=>{
+          return(
+            <h1>I am the qwe Route</h1>
+          )
+        } } /> 
+        <Route path="/zxc" render={()=>{
+          return(
+            <h1>I am the zxc Route</h1>
+          )
+        } } />   
+      </PageWrapper>
       </Router>
-    </PageWrapper>
     );
   }
 }
