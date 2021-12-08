@@ -1,9 +1,13 @@
 import React, {Component} from "react";
 import PageWrapper from "./components/PageWrapper";
+import Home from "./components/Pages/Home";
 
 function App() {
   return (
-    <PageWrapper />
+    <PageWrapper >
+    <Home/>
+    <h1>Cristian made this</h1>
+    </PageWrapper>
   );
 }
 
