@@ -1,9 +1,21 @@
 import React, {Component} from "react";
+import Header from "../Common/Header";
+import image from "../assets/img/about.jpg"
 
 class About extends Component {
   render (){
       return (
-<section id="about">
+          <div>
+                          <Header 
+              title="About Us"
+              subtitle="We are Akatsuki"
+              showButton={false}
+              image={image}
+            />
+          </div>
+
+          )
+{/* <section id="about">
     <div className="container">
       <div className="row">
         <div className="col-lg-12 text-center">
@@ -81,8 +93,8 @@ class About extends Component {
         </div>
       </div>
     </div>
-  </section>
-      )
+  </section> */}
+     
   }
 }
 
