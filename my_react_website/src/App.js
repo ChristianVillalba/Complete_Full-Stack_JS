@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 // Pages
 import Home from "./components/Pages/Home";
 import About from "./components/Pages/About";
-import Services from "./components/Pages/Services";
+import Services from "./components/Common/Services";
 
 
 class App extends Component {
