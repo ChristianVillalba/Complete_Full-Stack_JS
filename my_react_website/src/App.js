@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Home from "./components/Pages/Home";
 import About from "./components/Pages/About";
 import Services from "./components/Common/Services";
+import Portfolio from "./components/Common/Portfolio";
 
 
 class App extends Component {
@@ -16,7 +17,8 @@ class App extends Component {
       <PageWrapper >   
         <Route exact={true} path="/" component={Home} />
         <Route path="/about" component={About}/>
-        <Route path="/Services" component={Services}/>
+        <Route path="/services" component={Services}/>
+        <Route path="/portfolio" component={Portfolio}/>
       </PageWrapper>
       </Router>
     );
