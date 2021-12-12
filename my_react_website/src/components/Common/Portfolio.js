@@ -1,4 +1,14 @@
 import React, {Component} from "react";
+import PorfolioItem from "./PortfolioItem";
+
+const portfolio = [
+  {title:"Threads", subtitle:"Illustration", image:""},
+  {title:"Explore", subtitle:"Graphic Design", image:""},
+  {title:"Finish", subtitle:"Identity", image:""},
+  {title:"Lines", subtitle:"Website Design", image:""},
+  {title:"Southwest", subtitle:"Branding", image:""},
+  {title:"Window", subtitle:"Phtography", image:""},
+];
 
 class Portfolio extends Component {
   render (){
@@ -14,6 +24,9 @@ class Portfolio extends Component {
     </div>
 
     <div className="row">
+    {portfolio.map((item, index)=> {
+      return <PorfolioItem {...item} key={index} />
+    })}
 
     </div>
   </div>
