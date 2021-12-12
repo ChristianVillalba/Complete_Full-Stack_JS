@@ -1,6 +1,14 @@
 import React, {Component} from "react";
 import PorfolioItem from "./PortfolioItem";
 
+import img1 from "../assets/img/portfolio/01-thumbnail.jpg";
+import img1 from "../assets/img/portfolio/01-thumbnail.jpg";
+import img1 from "../assets/img/portfolio/01-thumbnail.jpg";
+import img1 from "../assets/img/portfolio/01-thumbnail.jpg";
+import img1 from "../assets/img/portfolio/01-thumbnail.jpg";
+import img1 from "../assets/img/portfolio/01-thumbnail.jpg";
+
+
 const portfolio = [
   {title:"Threads", subtitle:"Illustration", image:""},
   {title:"Explore", subtitle:"Graphic Design", image:""},
