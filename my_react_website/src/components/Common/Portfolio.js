@@ -1,21 +1,21 @@
 import React, {Component} from "react";
 import PorfolioItem from "./PortfolioItem";
 
-import img1 from "../assets/img/portfolio/01-thumbnail.jpg";
-import img1 from "../assets/img/portfolio/01-thumbnail.jpg";
-import img1 from "../assets/img/portfolio/01-thumbnail.jpg";
-import img1 from "../assets/img/portfolio/01-thumbnail.jpg";
-import img1 from "../assets/img/portfolio/01-thumbnail.jpg";
-import img1 from "../assets/img/portfolio/01-thumbnail.jpg";
+import img01 from "../assets/img/portfolio/01-thumbnail.jpg";
+import img02 from "../assets/img/portfolio/02-thumbnail.jpg";
+import img03 from "../assets/img/portfolio/03-thumbnail.jpg";
+import img04 from "../assets/img/portfolio/04-thumbnail.jpg";
+import img05 from "../assets/img/portfolio/05-thumbnail.jpg";
+import img06 from "../assets/img/portfolio/06-thumbnail.jpg";
 
 
 const portfolio = [
-  {title:"Threads", subtitle:"Illustration", image:""},
-  {title:"Explore", subtitle:"Graphic Design", image:""},
-  {title:"Finish", subtitle:"Identity", image:""},
-  {title:"Lines", subtitle:"Website Design", image:""},
-  {title:"Southwest", subtitle:"Branding", image:""},
-  {title:"Window", subtitle:"Phtography", image:""},
+  {title:"Threads", subtitle:"Illustration", image:img01},
+  {title:"Explore", subtitle:"Graphic Design", image:img02},
+  {title:"Finish", subtitle:"Identity", image:img03},
+  {title:"Lines", subtitle:"Website Design", image:img04},
+  {title:"Southwest", subtitle:"Branding", image:img05},
+  {title:"Window", subtitle:"Phtography", image:img06},
 ];
 
 class Portfolio extends Component {
