@@ -2,15 +2,15 @@ import React, {Component} from "react";
 import SingleService from "./SingleService";
 
 const servicesOffered = [
-    {title: "E-commerce", 
+    {title: "Assassin", 
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.", 
-    icon: "fa-shopping-cart"},
-    {title: "Responsive Design", 
+    icon: "fa-crosshairs"},
+    {title: "Spy", 
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.", 
-    icon: "fa-laptop"},
-    {title: "Web Security", 
+    icon: "fa-binoculars"},
+    {title: "Safeguard", 
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.", 
-    icon: "fa-shopping-cart"},
+    icon: "fa-shield-alt"},
 ]
 
 class Services extends Component {
