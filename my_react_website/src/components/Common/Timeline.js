@@ -63,7 +63,7 @@ class Timeline extends Component {
                   <div className="timeline-panel">
                     <div className="timeline-heading">
                       <h4>July 2014</h4>
-                      <h4 className="subheading">Same objective, New Approach</h4>
+                      <h4 className="subheading">New Approach</h4>
                     </div>
                     <div className="timeline-body">
                       <p className="text-muted">Akatsuki's previously pacifist approaches were futile. After Yahiko's death, Akatsuki's new objective is obtaining power, then monopolizing war altogether to create peace.</p>
