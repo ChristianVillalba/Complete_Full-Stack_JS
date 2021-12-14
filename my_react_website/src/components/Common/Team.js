@@ -5,11 +5,23 @@ import TeamMember from "./TeamMember";
 import team04 from "../assets/img/team/4.jpg";
 import team05 from "../assets/img/team/5.jpg";
 import team06 from "../assets/img/team/6.jpg";
+import team07 from "../assets/img/team/7.jpg";
+import team08 from "../assets/img/team/8.jpg";
+import team09 from "../assets/img/team/9.jpg";
+import team10 from "../assets/img/team/10.jpg";
+import team11 from "../assets/img/team/11.jpg";
+import team12 from "../assets/img/team/12.jpg";
 
 const members = [
     {name: "Pain", power:"Rinnengan", image: team04},
     {name: "Konan", power:"Paper Ninjutsu", image: team05},
     {name: "Zetsu", power:"Absorption", image: team06},
+    {name: "Itachi", power:"Sharingan", image: team07},
+    {name: "Sasori", power:"Weaponized Puppets", image: team08},
+    {name: "Deidara", power:"Explosive Puppets", image: team09},
+    {name: "Kisame", power:"Swordman", image: team10},
+    {name: "Hidan", power:"Blood Rituals", image: team11},
+    {name: "Tobi", power:"Explosives", image: team12},
 ]
 
 class Team extends Component {
