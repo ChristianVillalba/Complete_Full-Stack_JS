@@ -8,6 +8,7 @@ import About from "./components/Pages/About";
 import Services from "./components/Common/Services";
 import Portfolio from "./components/Common/Portfolio";
 import Team from "./components/Common/Team";
+import Contact from "./components/Pages/Contact";
 
 
 class App extends Component {
@@ -21,6 +22,7 @@ class App extends Component {
         <Route path="/services" component={Services}/>
         <Route path="/portfolio" component={Portfolio}/>
         <Route path="/team" component={Team}/>
+        <Route path="/contact" component={Contact}/>
       </PageWrapper>
       </Router>
     );

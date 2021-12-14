@@ -25,6 +25,7 @@ class Services extends Component {
                 </div>
             </div>
             <div className="row text-center">
+            {/* Maping SingleService Components */}
             {servicesOffered.map((service,index)=>{
                 return <SingleService 
                             {...service} key={index}

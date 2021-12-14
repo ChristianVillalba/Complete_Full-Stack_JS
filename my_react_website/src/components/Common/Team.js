@@ -36,11 +36,10 @@ class Team extends Component {
             </div>
           </div>
           <div className="row">
+          {/* // Maping TeamMembers Component */}
           {members.map((member, index)=>{
               return <TeamMember {...member} key={index} />
-          })}
-
-            
+          })}          
           </div>
           <div className="row">
             <div className="col-lg-8 mx-auto text-center">
