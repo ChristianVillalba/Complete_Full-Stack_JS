@@ -1,4 +1,30 @@
 import React, {Component} from "react";
+import Field from "../Common/Field";
+
+const fields = {
+  sections: [
+    [
+      {name: "name", 
+      elementName: "input",
+      type:"text", 
+      placeholder:"Your Name", },
+      {name: "email", 
+      elementName: "input",
+      type:"email", 
+      placeholder:"Your email", },
+      {name: "phone", 
+      elementName: "input",
+      type:"text", 
+      placeholder:"Your phone", },
+    ],
+    [
+      {name: "message", 
+      elementName: "textarea",
+      type:"text", 
+      placeholder:"Type your message", },  
+    ]
+  ],
+  } 
 
 class Contatc extends Component {
   constructor(props){
@@ -25,52 +51,7 @@ class Contatc extends Component {
             <div className="col-lg-12">
               <form id="contactForm" name="sentMessage" novalidate="novalidate">
                 <div className="row">
-                  <div className="col-md-6">
-                    <div className="form-group">
-                      <input className="form-control" 
-                        id="name" type="text" 
-                        placeholder="Your Name *" 
-                        required="required" 
-                        data-validation-required-message="Please enter your name."
-                        value={this.state.name}
-                        onChange={e => this.setState({name: e.target.value})}
-                        />
-                      <p className="help-block text-danger"></p>
-                    </div>
-                    <div className="form-group">
-                      <input className="form-control" 
-                        id="email" type="email" 
-                        placeholder="Your Email *" 
-                        required="required" 
-                        data-validation-required-message="Please enter your email address."
-                        value={this.state.email}
-                        onChange={e => this.setState({email: e.target.value})}
-                        />
-                      <p className="help-block text-danger"></p>
-                    </div>
-                    <div className="form-group">
-                      <input className="form-control" 
-                        id="phone" type="tel" 
-                        placeholder="Your Phone *" required="required" 
-                        data-validation-required-message="Please enter your phone number."
-                        value={this.state.phone}
-                        onChange={e => this.setState({phone: e.target.value})}
-                        />
-                      <p className="help-block text-danger"></p>
-                    </div>
-                  </div>
-                  <div className="col-md-6">
-                    <div className="form-group">
-                      <textarea className="form-control" 
-                        id="message" placeholder="Your Message *" 
-                        required="required" 
-                        data-validation-required-message="Please enter a message." 
-                        value={this.state.name}
-                        onChange={e => this.setState({message: e.target.value})}>
-                      </textarea>
-                      <p className="help-block text-danger"></p>
-                    </div>
-                  </div>
+
                   <div className="clearfix"></div>
                   <div className="col-lg-12 text-center">
                     <div id="success"></div>
