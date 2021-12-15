@@ -5,21 +5,25 @@ class Field extends Component {
       return (
         <div className="form-group">
             {this.props.elementName==="input" ?
-                <input className="form-control" 
-                id="name" type="text" 
+                <input 
+                className="form-control" 
+                id="name" 
+                type="text" 
                 placeholder="Your Name *" 
                 required="required" 
                 data-validation-required-message="Please enter your name."
-                value={this.state.name}
-                onChange={e => this.setState({name: e.target.value})}
+                value={this.props.value}
+                onChange={e => this.props.onChange(e)}
                 />
             :
-                <textarea className="form-control" 
-                id="message" placeholder="Your Message *" 
+                <textarea 
+                className="form-control" 
+                id="message" 
+                placeholder="Your Message *" 
                 required="required" 
                 data-validation-required-message="Please enter a message." 
-                value={this.state.name}
-                onChange={e => this.setState({message: e.target.value})}
+                value={this.props.value}
+                onChange={e => this.props.onChange(e)}
                 />
             }
             <p className="help-block text-danger"></p>

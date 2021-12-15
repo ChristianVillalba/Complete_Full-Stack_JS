@@ -51,6 +51,22 @@ class Contatc extends Component {
             <div className="col-lg-12">
               <form id="contactForm" name="sentMessage" novalidate="novalidate">
                 <div className="row">
+                {fields.sections.map((section, sectionIndex) => {
+                  return (
+                    <div className="col-md-6" key={sectionIndex}>
+                      {section.map((field, index) => {
+                        return <Field 
+                          {...field} 
+                          key={index} 
+                          value={this.state[field.name]} 
+                          onChange={e => this.setState({ [field.name]: e.target.value })} 
+                            
+                          />
+                      })}
+
+                    </div> 
+                  )
+                })}
 
                   <div className="clearfix"></div>
                   <div className="col-lg-12 text-center">
