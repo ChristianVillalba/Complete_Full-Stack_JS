@@ -7,9 +7,9 @@ class Field extends Component {
             {this.props.elementName==="input" ?
                 <input 
                 className="form-control" 
-                id="name" 
-                type="text" 
-                placeholder="Your Name *" 
+                id={this.props.name}
+                type={this.props.type} 
+                placeholder={this.props.placeholder}
                 required="required" 
                 data-validation-required-message="Please enter your name."
                 value={this.props.value}
@@ -18,8 +18,8 @@ class Field extends Component {
             :
                 <textarea 
                 className="form-control" 
-                id="message" 
-                placeholder="Your Message *" 
+                id={this.props.name}
+                placeholder={this.props.placeholder}
                 required="required" 
                 data-validation-required-message="Please enter a message." 
                 value={this.props.value}

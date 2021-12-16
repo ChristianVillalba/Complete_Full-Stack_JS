@@ -37,6 +37,8 @@ class Contatc extends Component {
     }
   }
 
+  submitForm = (e) => {alert("Form Submitted. Thank You")}
+
   render (){
       return (
         <section id="contact">
@@ -49,7 +51,8 @@ class Contatc extends Component {
           </div>
           <div className="row">
             <div className="col-lg-12">
-              <form id="contactForm" name="sentMessage" novalidate="novalidate">
+              <form onClick={e => this.submitForm(e)}
+              name="sentMessage" novalidate="novalidate">
                 <div className="row">
                 {fields.sections.map((section, sectionIndex) => {
                   return (
@@ -71,7 +74,13 @@ class Contatc extends Component {
                   <div className="clearfix"></div>
                   <div className="col-lg-12 text-center">
                     <div id="success"></div>
-                    <button id="sendMessageButton" className="btn btn-primary btn-xl text-uppercase" type="submit">Send Message</button>
+                    <button 
+                    // id="sendMessageButton" 
+                    className="btn btn-primary btn-xl text-uppercase" 
+                    type="submit"
+                    
+                    
+                    >Send Message</button>
                   </div>
                 </div>
               </form>
