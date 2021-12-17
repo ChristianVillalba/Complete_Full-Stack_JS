@@ -28,15 +28,6 @@ const fields = {
   } 
 
 class Contatc extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      name: "",
-      email: "",
-      phone: "",
-      message: "",
-    }
-  }
 
   submitForm = (e) => {alert("Form Submitted. Thank You")}
 
@@ -62,9 +53,6 @@ class Contatc extends Component {
                         return <Field 
                           {...field} 
                           key={index} 
-                          value={this.state[field.name]} 
-                          onChange={e => this.setState({ [field.name]: e.target.value })} 
-                            
                           />
                       })}
 
