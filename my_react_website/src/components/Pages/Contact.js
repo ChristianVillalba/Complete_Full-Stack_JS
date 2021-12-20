@@ -29,7 +29,9 @@ const fields = {
 
 class Contatc extends Component {
 
-  submitForm = (e) => {alert("Form Submitted. Thank You")}
+  submitForm = (e) => {
+    e.preventDefault();
+    alert("Form Submitted. Thank You")}
 
   render (){
       return (
@@ -43,7 +45,7 @@ class Contatc extends Component {
           </div>
           <div className="row">
             <div className="col-lg-12">
-              <form onClick={e => this.submitForm(e)}
+              <form onSubmit={e => this.submitForm(e)}
               name="sentMessage" novalidate="novalidate">
                 <div className="row">
                 {fields.sections.map((section, sectionIndex) => {
@@ -53,6 +55,9 @@ class Contatc extends Component {
                         return <Field 
                           {...field} 
                           key={index} 
+                          value={this.props.values[field.name]}
+                          name={field.name}
+                          onChange={this.props.handleChange}
                           />
                       })}
 
@@ -83,6 +88,25 @@ class Contatc extends Component {
   }
 }
 
+export default withFormik({
+  mapPropsToValues: () => ({
+    name: "",
+    email:"",
+    phone:"",
+    message:"",
+  }),
+  validate: values => {
+      const errors = {};
 
+      Object.keys(values).map(v => {
+        if (!values[v]){
+          errors[v] = "Required";
+        }
+      })
+      return errors;
+    },
+    handleSubmit: (values,{setSubmitting}) => {
+      alert("You have submitted the form!")
+    }
 
 })(Contatc);
