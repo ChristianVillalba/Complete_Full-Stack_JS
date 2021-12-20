@@ -27,11 +27,7 @@ const fields = {
   ],
   } 
 
-class Contatc extends Component {
-
-  submitForm = (e) => {
-    e.preventDefault();
-    alert("Form Submitted. Thank You")}
+class Contact extends Component {
 
   render (){
       return (
@@ -45,7 +41,7 @@ class Contatc extends Component {
           </div>
           <div className="row">
             <div className="col-lg-12">
-              <form onSubmit={e => this.submitForm(e)}
+              <form onSubmit={this.props.handleSubmit}
               name="sentMessage" novalidate="novalidate">
                 <div className="row">
                 {fields.sections.map((section, sectionIndex) => {
@@ -58,6 +54,8 @@ class Contatc extends Component {
                           value={this.props.values[field.name]}
                           name={field.name}
                           onChange={this.props.handleChange}
+                          touched={(this.props.touched[field.name])}
+                          errors={this.props.errors[field.name]}
                           />
                       })}
 
@@ -106,7 +104,8 @@ export default withFormik({
       return errors;
     },
     handleSubmit: (values,{setSubmitting}) => {
-      alert("You have submitted the form!")
+      console.log("VALUES", values);
+      alert("You have submitted the form!", JSON.stringify(values));
     }
 
-})(Contatc);
+})(Contact);
