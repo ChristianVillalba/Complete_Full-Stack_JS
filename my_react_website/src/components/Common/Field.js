@@ -30,7 +30,7 @@ class Field extends Component {
             }
             <p className="text-danger">
               {(this.props.touched && this.props.errors) && 
-              <span>This field is required</span>
+              <span>{this.proops.errors}</span>
               }
             </p>
         </div>
