@@ -93,16 +93,7 @@ export default withFormik({
     phone:"",
     message:"",
   }),
-  validate: values => {
-      const errors = {};
-
-      Object.keys(values).map(v => {
-        if (!values[v]){
-          errors[v] = "Required";
-        }
-      })
-      return errors;
-    },
+  
     handleSubmit: (values,{setSubmitting}) => {
       console.log("VALUES", values);
       alert("You have submitted the form!", JSON.stringify(values));
