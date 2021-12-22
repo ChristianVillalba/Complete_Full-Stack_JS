@@ -96,8 +96,13 @@ export default withFormik({
   }),
 
   validationSchema: Yup.object().shape({
-    name: Yup.string().min(2,"Your name should be longer").required("You must give us your name")
+    name: Yup.string().min(2,"Your name should be longer.").required("You must give us your name."),
     // String inside required() will be the error message displayed
+    email: Yup.email("Please, introduce a valid email.").required("You must give us your name."),
+    phone: Yup.string().
+    min(5,"Phone number must be longer than 5 digits.").
+    max(20,"Phone number must be shorter than 20 digits.").
+    required("We need a phone number to reach you at"),
   }),
   
   handleSubmit: (values,{setSubmitting}) => {
