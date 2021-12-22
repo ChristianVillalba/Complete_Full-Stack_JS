@@ -96,7 +96,7 @@ export default withFormik({
   }),
 
   validationSchema: Yup.object().shape({
-    name: Yup.string().required("You must give us your name")
+    name: Yup.string().min(2,"Your name should be longer").required("You must give us your name")
     // String inside required() will be the error message displayed
   }),
   
