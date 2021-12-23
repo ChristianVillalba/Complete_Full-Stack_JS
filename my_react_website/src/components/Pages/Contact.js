@@ -100,9 +100,10 @@ export default withFormik({
     // String inside required() will be the error message displayed
     email: Yup.string().email("Please, introduce a valid email.").required("You must give us your email."),
     phone: Yup.string().
-    min(5,"Phone number must be longer than 5 digits.").
-    max(20,"Phone number must be shorter than 20 digits.").
-    required("We need a phone number to reach you at"),
+      min(5,"Phone number must be longer than 5 digits.").
+      max(20,"Phone number must be shorter than 20 digits.").
+      required("We need a phone number to reach you at"),
+    message: Yup.string().min(16, "Message too short. Min length: 16 characters.").required("Message is required.")
   }),
   
   handleSubmit: (values,{setSubmitting}) => {
