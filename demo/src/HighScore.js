@@ -7,7 +7,7 @@ class HighScore extends Component {
                 <h3>You did It!</h3>
             )
         } else {
-            return <h3>Do Not Beat high Score of 10 or the App will crash!
+            return <h3>Do Not Beat high Score of 10 or the App will disappear!
             <button onClick={(e) => this.props.onReset(e) }>Reset</button>
             
             </h3>;
