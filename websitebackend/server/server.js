@@ -34,7 +34,7 @@ boot(app, __dirname, function(err) {
 });
 
 // We can access our model through apps.models
-app.models.User.afterRemote("create",(ctx, user, next) => {
+app.models.user.afterRemote("create",(ctx, user, next) => {
   console.log("New User is ", user);
   app.models.Profile.create({
     first_name: user.username,
@@ -47,6 +47,5 @@ app.models.User.afterRemote("create",(ctx, user, next) => {
       console.log("There is an Error", err); 
     }
     next();
-  })
-  next();
+  });
 })
