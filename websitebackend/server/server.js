@@ -34,6 +34,7 @@ boot(app, __dirname, function(err) {
 });
 
 // We can access our model through apps.models
+// user lowercase: reference our common/models > user.js user.json
 app.models.user.afterRemote("create",(ctx, user, next) => {
   console.log("New User is ", user);
   app.models.Profile.create({
