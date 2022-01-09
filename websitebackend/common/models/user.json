@@ -16,7 +16,7 @@
   "validations": [],
   "relations": {
     "Profile": {
-      "tyep": "hasMany",
+      "type": "hasMany",
       "model": "Profile",
       "foreignKey": ""
     }
