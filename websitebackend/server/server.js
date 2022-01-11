@@ -33,6 +33,20 @@ boot(app, __dirname, function(err) {
     app.start();
 });
 
+// when starting the data it will find users, if no users, create one:
+app.model.user.find((err,result) => {
+  if(result.length === 0){
+    const user = {"email" : "cris@cris.com",
+    "password": "test",
+    "username": "Cris"
+    };
+    app.models.user.create(user,(err,result) => {
+      console.log("Tried to create user", err, result);
+    } )
+  }
+})
+
+
 // We can access our model through apps.models
 // user lowercase: reference our common/models > user.js user.json
 app.models.user.afterRemote("create",(ctx, user, next) => {
