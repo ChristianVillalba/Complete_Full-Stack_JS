@@ -19,6 +19,11 @@
       "type": "hasOne",
       "model": "Profile",
       "foreignKey": ""
+    },
+    "accessToken": {
+      "type": "hasMany",
+      "model": "CustomAccessToken",
+      "foreignKey": "userId"
     }
   },
   "acls": [],
