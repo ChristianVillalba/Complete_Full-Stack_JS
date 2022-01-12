@@ -34,7 +34,7 @@ boot(app, __dirname, function(err) {
 });
 
 // when starting the data it will find users, if no users, create one:
-app.model.user.find((err,result) => {
+app.models.user.find((err,result) => {
   if(result.length === 0){
     const user = {"email" : "cris@cris.com",
     "password": "test",
@@ -44,7 +44,7 @@ app.model.user.find((err,result) => {
       console.log("Tried to create user", err, result);
     } )
   }
-})
+});
 
 
 // We can access our model through apps.models

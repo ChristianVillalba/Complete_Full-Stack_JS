@@ -20,7 +20,7 @@
       "model": "Profile",
       "foreignKey": ""
     },
-    "accessToken": {
+    "accessTokens": {
       "type": "hasMany",
       "model": "CustomAccessToken",
       "foreignKey": "userId"
