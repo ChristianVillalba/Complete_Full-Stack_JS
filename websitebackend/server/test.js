@@ -4,5 +4,13 @@
 var models = require("./server.js").models;
 
 models.Profile.findOrCreate({name: "Chris2"}, (err, profile) => {
-    console.log("data?", err, profile);
+    if(err){
+        console.log("Tere was an error", err);
+    }else if(profile){
+        profile.updateAttributes({
+            email: "chris@chrisvilla.com"
+        }, (updateError, updated) => {
+            console.log("Saved?", updateError, updated);
+        });
+    }
 })
