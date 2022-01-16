@@ -27,4 +27,12 @@ var models = require("./server.js").models;
 // git commit -m "" :
 // database populated using the commented script. Data created, and saved using toSave function. Operative
 
-models.Profile.findOne({})
+var fileter = {
+    where : {},
+    order: "date ASC",
+    limit: 3,
+}
+
+models.Profile.findOne({where:{name: "Chris"}, oder: "id DESC"}, (err, found) => {
+    console.log("Found?", err, found);
+})
