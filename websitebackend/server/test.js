@@ -39,6 +39,6 @@ var filter = {
     }
 }
 
-models.Profile.find(filter, (err, found) => {
+models.Profile.findById( "61e2fcdf01ba9b8cf06210d6", (err, found) => {
     console.log("Found?", err, found);
 })
