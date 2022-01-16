@@ -32,11 +32,11 @@ var filter = {
         email: {like: "cris"}
     },
     order: "date ASC",
-    limit: 10,
-    // skip: 2,
-    // fields: {
-    //     email: true,
-    // }
+    limit: 20,
+    skip: 4,
+    fields: {
+        email: true,
+    }
 }
 
 models.Profile.find(filter, (err, found) => {
