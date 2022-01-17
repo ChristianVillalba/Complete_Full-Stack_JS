@@ -23,22 +23,22 @@ var models = require("./server.js").models;
 //         console.log("Created? ", created );
 //     })
 // })
+// FILTER FUNCTION
+// var filter = {
+//     where : {
+//         email: {like: "cris"}
+//     },
+//     order: "date ASC",
+//     limit: 20,
+//     skip: 4,
+//     fields: {
+//         email: true,
+//     }
+// }
 
-// git commit -m "" :
-// database populated using the commented script. Data created, and saved using toSave function. Operative
 
-var filter = {
-    where : {
-        email: {like: "cris"}
-    },
-    order: "date ASC",
-    limit: 20,
-    skip: 4,
-    fields: {
-        email: true,
-    }
-}
 
 models.Profile.findById( "61e2fcdf01ba9b8cf06210d6", (err, found) => {
     console.log("Found?", err, found);
+    found.destroy()
 })
