@@ -38,6 +38,8 @@ var filter = {
 
 
 
-models.Profile.destroyAll( filter.where, (err, found) => {
+models.Profile.destroyById( "61e0aa948507dd8af804d843", (err, found) => {
     console.log("Found?", err, found);
 })
+
+//ready to run: node server/test.js
