@@ -24,21 +24,20 @@ var models = require("./server.js").models;
 //     })
 // })
 // FILTER FUNCTION
-// var filter = {
-//     where : {
-//         email: {like: "cris"}
-//     },
-//     order: "date ASC",
-//     limit: 20,
-//     skip: 4,
-//     fields: {
-//         email: true,
-//     }
-// }
+var filter = {
+    where : {
+        email: {like: "cris"}
+    },
+    order: "date ASC",
+    limit: 20,
+    skip: 4,
+    fields: {
+        email: true,
+    }
+}
 
 
 
-models.Profile.findById( "61e2fcdf01ba9b8cf06210d6", (err, found) => {
+models.Profile.destroyAll( filter.where, (err, found) => {
     console.log("Found?", err, found);
-    found.destroy()
 })
