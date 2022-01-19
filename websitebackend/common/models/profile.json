@@ -40,6 +40,31 @@
       "foreignKey": ""
     }
   },
-  "acls": [],
+  "acls": [
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW"
+    }
+  ],
   "methods": {}
 }
