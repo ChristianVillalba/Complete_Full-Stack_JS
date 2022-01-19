@@ -48,7 +48,7 @@
     {
       "accessType": "WRITE",
       "principalType": "ROLE",
-      "principalId": "$owner",
+      "principalId": "editor",
       "permission": "ALLOW"
     }
   ],

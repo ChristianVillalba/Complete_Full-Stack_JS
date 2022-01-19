@@ -66,12 +66,13 @@ app.models.user.afterRemote("create",(ctx, user, next) => {
   });
 })
 
+// find the ADMIN ROLE, if it does not exists, It will be created
 app.models.Role.find({where: {name: "admin"}},(err,role) => {
   if (!err && role) {
     console.log("No Error, role is ", role);
     if(role.length === 0) {
       app.models.Role.create({
-        "name": "admin",
+        name: "admin",
       }, (err2, result) => {
         if (!err2 && result) {
           app.models.user.findOne((usererr, user) => {
@@ -85,6 +86,19 @@ app.models.Role.find({where: {name: "admin"}},(err,role) => {
             } 
           });
         }
+      });
+    }
+  }
+});
+
+// find the EDITOR ROLE, if it does not exists, It will be created
+app.models.Role.find({where: {name: "editor"}},(err,roles) => {
+  if (!err && roles) {
+    if (roles.length === 0) {
+      app.models.Role.create({
+        name: "editor",
+      },(creationErr, result) => {
+        console.log(creationErr, result); 
       });
     }
   }
