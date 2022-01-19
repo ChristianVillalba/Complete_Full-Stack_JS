@@ -94,6 +94,7 @@ app.models.Role.find({where: {name: "admin"}},(err,role) => {
 // find the EDITOR ROLE, if it does not exists, It will be created
 app.models.Role.find({where: {name: "editor"}},(err,roles) => {
   if (!err && roles) {
+    console.log("No Error, role is ", roles);
     if (roles.length === 0) {
       app.models.Role.create({
         name: "editor",
