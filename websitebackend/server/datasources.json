@@ -12,7 +12,7 @@
     "name": "myFile",
     "connector": "loopback-component-storage",
     "provider": "filesystem",
-    "root": "/storage",
+    "root": "./server/storage",
     "nameConflict": "makeUnique"
   }
 }
