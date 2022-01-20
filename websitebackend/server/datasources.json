@@ -7,5 +7,12 @@
     "connector": "mongodb",
     "hots": "localhost",
     "user": ""
+  },
+  "myFile": {
+    "name": "myFile",
+    "connector": "loopback-component-storage",
+    "provider": "filesystem",
+    "root": "/storage",
+    "nameConflict": "makeUnique"
   }
 }
