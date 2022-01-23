@@ -36,12 +36,6 @@
       "model": "Category",
       "foreignKey": "categoryId"
     }
-    ,
-    "PostImage": {
-      "type": "hasMany",
-      "model": "PostImage",
-      "foreignKey": ""
-    }
   },
   "acls": [
     {

@@ -1,5 +1,5 @@
 {
-  "name": "PostImage",
+  "name": "ImageFile",
   "base": "Model",
   "idInjection": true,
   "options": {
@@ -8,36 +8,8 @@
   "properties": {},
   "validations": [],
   "relations": {
-    "Post": {
-      "type": "belongsTo",
-      "model": "Post",
-      "foreignKey": "postId"
-    },
-    "user": {
-      "type": "belongsTo",
-      "model": "user",
-      "foreignKey": "userId"
-    }
   },
   "acls": [
-  //   {
-  //   "accessType": "WRITE",
-  //   "principalType": "ROLE",
-  //   "principalId": "$everyone",
-  //   "permission": "DENY"
-  // },
-  // {
-  //   "accessType": "WRITE",
-  //   "principalType": "ROLE",
-  //   "principalId": "admin",
-  //   "permission": "ALLOW"
-  // },
-  // {
-  //   "accessType": "WRITE",
-  //   "principalType": "ROLE",
-  //   "principalId": "editor",
-  //   "permission": "ALLOW"
-  // }
 ],
   "methods": {}
 }
