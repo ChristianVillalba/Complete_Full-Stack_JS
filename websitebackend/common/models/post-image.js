@@ -1,7 +1,19 @@
 'use strict';
 const sharp = require("sharp");
+const fs = require("fs");
 
 module.exports = function(PostImage) {
+
+    PostImage.upload = function(ctx, options, access_token, post_id, cb) {
+        if (!options) options = {};
+        ctx.req.params.container = "postImages";
+        if (!fs.existsSync("./server/storage/" + ctx.req.params.container )) {
+            fs.existsSync("./server/storage/" + ctx.req.params.container );
+        }
+        PostImage.app.models.ImageFile.upload()
+
+    }
+
     PostImage.remoteMethod(
         "upload",
         {
@@ -12,7 +24,10 @@ module.exports = function(PostImage) {
                 { arg: "access_token", type: "string"},
                 { arg: "post_id", type: "string"}
             ],
+            returns: {
+                arg: "fileObject", type: "object", root: true,
+            },
+            http: {verb: "post"},
         }
-    )
-
+    );
 };
