@@ -19,16 +19,30 @@ class App extends Component {
     return (
       <Router>
         <Route path="/admin" render={props => (
-          <Login/>
+          <AdminWrapper>
+            <Login/>
+          </AdminWrapper>
         )}/>
-      <PageWrapper >   
-        <Route exact={true} path="/" component={Home} />
-        <Route path="/about" component={About}/>
-        <Route path="/services" component={Services}/>
+      
+        <Route exact={true} path="/" render={props => (
+            <PageWrapper>
+             <Home {...props} />
+            </PageWrapper>)}  
+        />
+        <Route path="/about" render={props => (
+            <PageWrapper>
+             <About {...props} />
+            </PageWrapper>)}  
+        />
+        {/* <Route path="/services" component={Services}/>
         <Route path="/portfolio" component={Portfolio}/>
-        <Route path="/team" component={Team}/>
-        <Route path="/contact" component={Contact}/>
-      </PageWrapper>
+        <Route path="/team" component={Team}/> */}
+        <Route path="/contact" render={props => (
+            <PageWrapper>
+             <Contact {...props} />
+            </PageWrapper>)}  
+        />
+      
       </Router>
     );
   }
