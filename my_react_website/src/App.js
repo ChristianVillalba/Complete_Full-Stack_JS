@@ -9,6 +9,8 @@ import Services from "./components/Common/Services";
 import Portfolio from "./components/Common/Portfolio";
 import Team from "./components/Common/Team";
 import Contact from "./components/Pages/Contact";
+import Login from "./components/Pages/Login";
+import AdminWrapper from "./components/AdminWrapper";
 
 
 class App extends Component {
@@ -16,6 +18,9 @@ class App extends Component {
   render() {
     return (
       <Router>
+        <Route path="/admin" render={props => (
+          <Login/>
+        )}/>
       <PageWrapper >   
         <Route exact={true} path="/" component={Home} />
         <Route path="/about" component={About}/>
