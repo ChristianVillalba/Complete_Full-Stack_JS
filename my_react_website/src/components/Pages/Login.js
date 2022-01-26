@@ -21,6 +21,13 @@ class Login extends Component {
                 <div className="container">
                     <div className="login-form">
                         <div className="row">
+                          <h1>Login</h1>
+                        </div>
+                        <div className="row">
+                        <form onSubmit={e => {
+                            e.preventDefault();
+                            this.props.login(this.props.values.email, this.props.values.password);
+                        }}>
                             {fields.map((f,i) => {
                                 return (
                                     <div className="col-md-12">
@@ -36,7 +43,11 @@ class Login extends Component {
                                 />
                                     </div>
                                     )
-                            })} 
+                            })}
+                            <div className="col-md-12">
+                                <button className="btn btn-primary">Login</button>
+                            </div>
+                        </form> 
                         </div>
                     </div>
                 </div>
