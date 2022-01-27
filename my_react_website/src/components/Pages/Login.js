@@ -3,6 +3,7 @@ import Field from "../Common/Field";
 import {withFormik} from "formik";
 import * as Yup from "yup";
 import {connect} from "react-redux";
+import * as AuthActions from "../../store/actions/authActions";
 
 const fields = [
     {name: "email", 
@@ -66,7 +67,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         login: (email, pass) => {
-            console.log("Loggin in user", email);
+            dispatch(AuthActions.login(email, pass));
         }
     }
 }
