@@ -1,13 +1,19 @@
-export const login = (email, pass) => {
-    return {
-        type: "LOGIN",
-        payload: {email, pass}
+const defaultState = {
+    user: {},
+    token: null
+}
+
+const auth = (state = defaultState, action) => {
+    switch(action.type){
+        case "LOGIN":
+            return {
+                ...state,
+                user: action.payload,
+                token:1
+            }
+        default:
+            return state
     }
 }
 
-export const register = ( email, pass) => {
-    return {
-        type: "REGISTER",
-        payload: {email, pass}
-    }
-}
+export default auth;
