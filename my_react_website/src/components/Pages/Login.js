@@ -72,7 +72,10 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default withFormik({
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+) (withFormik({
     mapPropsToValues: () => ({
         email: "",
         password: ""
@@ -84,7 +87,4 @@ export default withFormik({
     handleSubmit: (values, {setSubmitting}) => {
         console.log("Login attempt", values);
     }
-}) (connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Login));
+})(Login));
