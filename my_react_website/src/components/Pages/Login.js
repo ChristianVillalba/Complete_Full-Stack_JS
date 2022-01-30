@@ -81,10 +81,11 @@ export default connect(
         password: ""
     }),
     validationSchema: Yup.object().shape({
-        email: Yup.string().email("Email is valid").required("You need to login with email address"),
+        email: Yup.string().email("Email is invalid").required("You need to login with email address"),
         password: Yup.string().required("You need to enter your password")
     }),
-    handleSubmit: (values, {setSubmitting}) => {
+    handleSubmit: (values, {setSubmitting}, login) => {
         console.log("Login attempt", values);
+        this.props.login(values.email, values.password)
     }
 })(Login));
