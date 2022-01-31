@@ -11,6 +11,7 @@ import Portfolio from "./components/Common/Portfolio";
 import Team from "./components/Common/Team";
 import Contact from "./components/Pages/Contact";
 import Login from "./components/Pages/Login";
+import Dashboard from "./components/Pages/Dashboard";
 import AdminWrapper from "./components/AdminWrapper";
 
 
@@ -21,7 +22,8 @@ class App extends Component {
       <Router>
         <Route path="/admin" render={props => (
           <AdminWrapper>
-            <Login/>
+          {props.auth.token ? <Dashboard/> : <Login/>
+          }  
           </AdminWrapper>
         )}/>
       
