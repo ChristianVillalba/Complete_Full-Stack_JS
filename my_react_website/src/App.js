@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import PageWrapper from "./components/PageWrapper";
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { connect } from "react-redux";
 
 // Pages
 import Home from "./components/Pages/Home";
@@ -48,4 +49,19 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    auth: state.auth
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    
+  }
+}
+
+export default  connect(
+  mapStateToProps,
+  mapDispatchToProps
+) (App);
