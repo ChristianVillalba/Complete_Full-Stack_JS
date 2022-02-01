@@ -20,12 +20,16 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <Route path="/admin" render={props => (
-          <AdminWrapper>
-          {props.auth.token ? <Dashboard/> : <Login/>
-          }  
-          </AdminWrapper>
-        )}/>
+        <Route path="/admin" render={props => {
+          console.log("Props:", props)
+          return (          
+            <AdminWrapper>
+              {this.props.auth.token ? <Dashboard/> : <Login/>
+              }  
+            </AdminWrapper>
+          )
+        }}
+        />
       
         <Route exact={true} path="/" render={props => (
             <PageWrapper>
