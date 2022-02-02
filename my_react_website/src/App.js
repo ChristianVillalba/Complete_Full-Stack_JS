@@ -13,6 +13,7 @@ import Contact from "./components/Pages/Contact";
 import Login from "./components/Pages/Login";
 import Dashboard from "./components/Pages/Dashboard";
 import AdminWrapper from "./components/AdminWrapper";
+import LoginWrapper from "./components/LoginWrapper";
 
 
 class App extends Component {
@@ -23,10 +24,17 @@ class App extends Component {
         <Route path="/admin" render={props => {
           console.log("Props:", props)
           return (          
-            <AdminWrapper>
-              {this.props.auth.token ? <Dashboard/> : <Login/>
+            <div>
+              {this.props.auth.token ? 
+                <AdminWrapper>
+                  <Dashboard/>
+                </AdminWrapper>
+               : 
+                <LoginWrapper>
+                <Login/>
+                </LoginWrapper>
               }  
-            </AdminWrapper>
+            </div>
           )
         }}
         />
