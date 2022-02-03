@@ -19,6 +19,9 @@ class AdminWrapper extends Component {
             <div id="admin-page">
                 <AppBar>
                     <Toolbar>
+                    <IconButton >
+                            <MenuIcon />
+                    </IconButton>
                         <Typography
                             component="h1"
                             variant="h6"
@@ -27,6 +30,11 @@ class AdminWrapper extends Component {
                             >Admin</Typography>
                     </Toolbar>
                 </AppBar>
+                <Drawer variant="permanent" open={true}>
+                    <List>
+                        <ListItem>Dashboard</ListItem>
+                    </List>
+                </Drawer>
                 {this.props.children}
             </div>
         )
