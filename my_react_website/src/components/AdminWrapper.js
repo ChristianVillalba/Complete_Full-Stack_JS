@@ -14,7 +14,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-// import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 // import Divider from '@material-ui/core/Divider';
 
 const drawerWidth = 240;
@@ -41,6 +41,21 @@ const styles = theme => ({
 })
 
 class AdminWrapper extends Component {
+
+    constructor(props){
+        super(props);
+        this.state = {
+            open: true
+        }
+    }
+
+    handleDrawerOpen = (e) => {
+        this.setState({open: true});
+    }
+    handleDrawerClose = (e) => {
+        this.setState({open: false});
+    }
+
     render() {
         const {classes} = this.props;
         return (
@@ -59,6 +74,11 @@ class AdminWrapper extends Component {
                     </Toolbar>
                 </AppBar>
                 <Drawer classNames={classes.drawerPaper} variant="permanent" open={true}>
+                    <div className={classes.toolbarIcon}>
+                        <IconButton onClick={this.handleDrawerClose}>
+                            <ChevronLeftIcon />
+                        </IconButton>
+                    </div>
                     <List>
                         <ListItem>Dashboard</ListItem>
                     </List>
