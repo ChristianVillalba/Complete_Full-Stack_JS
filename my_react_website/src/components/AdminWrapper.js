@@ -1,5 +1,9 @@
 import React, {Component} from "react";
 import "./assets/css/admin.css";
+
+import classNames from 'classnames';
+import {withStyles} from '@material-ui/core/styles';
+
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
@@ -13,12 +17,36 @@ import MenuIcon from '@material-ui/icons/Menu';
 // import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 // import Divider from '@material-ui/core/Divider';
 
+const drawerWidth = 240;
+
+const styles = theme => ({
+    toolbar: {
+        paddingRight: 24
+    },
+    appBar: {
+        marginLeft: drawerWidth,
+        width: `calc(100% - ${drawerWidth}px`
+        // zIndex: theme.zIndex.drawer + 1,
+        // transition: theme.transitions.create(['width', 'margin'], {
+        //     easing: theme.transitions.easing.sharp,
+        //     duration: theme.transitions.duration.leavingScreen,
+        // }),
+    },
+    drawerPaper: {
+        position: "relative",
+        whiteSpace: 'noWrap',
+        width: drawerWidth,
+    }
+
+})
+
 class AdminWrapper extends Component {
     render() {
+        const {classes} = this.props;
         return (
             <div id="admin-page">
-                <AppBar>
-                    <Toolbar>
+                <AppBar classNmae={classes.appBar}>
+                    <Toolbar className={classes.toolbar}>
                     <IconButton >
                             <MenuIcon />
                     </IconButton>
@@ -30,7 +58,7 @@ class AdminWrapper extends Component {
                             >Admin</Typography>
                     </Toolbar>
                 </AppBar>
-                <Drawer variant="permanent" open={true}>
+                <Drawer classNames={classes.drawerPaper} variant="permanent" open={true}>
                     <List>
                         <ListItem>Dashboard</ListItem>
                     </List>
@@ -41,4 +69,4 @@ class AdminWrapper extends Component {
     }
 }
 
-export default AdminWrapper;
+export default withStyles(styles)(AdminWrapper);
