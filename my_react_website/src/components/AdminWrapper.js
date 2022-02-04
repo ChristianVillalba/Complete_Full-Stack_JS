@@ -15,7 +15,7 @@ import ListItem from '@material-ui/core/ListItem';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-// import Divider from '@material-ui/core/Divider';
+import Divider from '@material-ui/core/Divider';
 
 const drawerWidth = 240;
 
@@ -24,19 +24,32 @@ const styles = theme => ({
         paddingRight: 24
     },
     appBar: {
+        zIndex: theme.zIndex.drawer + 1,
+        transition: theme.transitions.create(['width', 'margin'], {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.leavingScreen,
+        }),
+    },
+    appBarShift: {
         marginLeft: drawerWidth,
-        width: `calc(100% - ${drawerWidth}px`
-        // zIndex: theme.zIndex.drawer + 1,
-        // transition: theme.transitions.create(['width', 'margin'], {
-        //     easing: theme.transitions.easing.sharp,
-        //     duration: theme.transitions.duration.leavingScreen,
-        // }),
+        width: `calc(100% - ${drawerWidth}px)`,
+        transition: theme.transitions.create(['width', 'margin'], {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.enteringScreen,
+        }),
     },
     drawerPaper: {
         position: "relative",
         whiteSpace: 'noWrap',
         width: drawerWidth,
-    }
+    },
+    toolbarIcon: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'flex-end',
+        padding: '0 8px',
+        ...theme.mixins.toolbar
+    },
 
 })
 
@@ -60,7 +73,7 @@ class AdminWrapper extends Component {
         const {classes} = this.props;
         return (
             <div id="admin-page">
-                <AppBar classNmae={classes.appBar}>
+                <AppBar className={classNames(classes.appBar, this.state.open && classes.appBarShift)}>
                     <Toolbar className={classes.toolbar}>
                     <IconButton >
                             <MenuIcon />
@@ -79,6 +92,7 @@ class AdminWrapper extends Component {
                             <ChevronLeftIcon />
                         </IconButton>
                     </div>
+                    <Divider />
                     <List>
                         <ListItem>Dashboard</ListItem>
                     </List>
