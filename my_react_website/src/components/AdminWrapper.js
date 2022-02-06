@@ -42,6 +42,17 @@ const styles = theme => ({
         position: "relative",
         whiteSpace: 'noWrap',
         width: drawerWidth,
+        transition: theme.transitions.create('width', {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.enteringScreen,
+    },
+    drawerPaperClose: {
+        overflowX: 'hidden',
+        width: theme.spacing.unit * 7,
+        transition: theme.transitions.create('width', {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.leavingScreen,
+        })
     },
     toolbarIcon: {
         display: 'flex',
@@ -51,7 +62,7 @@ const styles = theme => ({
         ...theme.mixins.toolbar
     },
 
-})
+});
 
 class AdminWrapper extends Component {
 
@@ -75,7 +86,7 @@ class AdminWrapper extends Component {
             <div id="admin-page">
                 <AppBar className={classNames(classes.appBar, this.state.open && classes.appBarShift)}>
                     <Toolbar className={classes.toolbar}>
-                    <IconButton >
+                    <IconButton onClick={this.handleDrawerOpen} >
                             <MenuIcon />
                     </IconButton>
                         <Typography
@@ -86,7 +97,12 @@ class AdminWrapper extends Component {
                             >Admin</Typography>
                     </Toolbar>
                 </AppBar>
-                <Drawer classNames={classes.drawerPaper} variant="permanent" open={true}>
+                <Drawer 
+                    classes={{
+                        paper: classNames(classes.drawerPaper, !this.state.open && classes.drawerPaperClose)
+                    }} 
+                    variant="permanent" 
+                    open={true}>
                     <div className={classes.toolbarIcon}>
                         <IconButton onClick={this.handleDrawerClose}>
                             <ChevronLeftIcon />
