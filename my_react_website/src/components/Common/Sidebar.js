@@ -9,12 +9,31 @@ import ListSubheader from '@material-ui/core/ListSubheader';
 
 import FaceIcon from '@material-ui/icons/Face';
 import DashboardIcon from '@material-ui/icons/Dashboard';
+import Dashboard from '@material-ui/icons/Dashboard';
 // import FileCopyIcon from '@material-ui/icons/FileCopy';
 
 class Sidebar extends Component {
     render(){
         return (
             <List>
+                <ListItem button>
+                    <ListItemIcon>
+                        <DashboardIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Dashboard"/> 
+                </ListItem>
+                <ListItem button>
+                    <ListItemIcon>
+                        <DashboardIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Posts"/> 
+                </ListItem>
+                <ListItem button>
+                    <ListItemIcon>
+                        <FaceIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Users"/> 
+                </ListItem>
 
             </List>
         )
