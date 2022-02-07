@@ -9,7 +9,6 @@ import ListSubheader from '@material-ui/core/ListSubheader';
 
 import FaceIcon from '@material-ui/icons/Face';
 import DashboardIcon from '@material-ui/icons/Dashboard';
-import Dashboard from '@material-ui/icons/Dashboard';
 import FileCopyIcon from '@material-ui/icons/FileCopy';
 
 function ListItemLink(props) {
@@ -45,3 +44,5 @@ class Sidebar extends Component {
         )
     }
 }
+
+export default Sidebar;
