@@ -26,7 +26,17 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <Route path="/admin" render={props => {
+         <Route 
+          path='/admin/users' 
+          component={Users}
+          />
+          <Route 
+          path='/admin/posts' 
+          component={Posts}
+          />
+
+
+        <Route exact={true} path="/admin" render={props => {
           console.log("Props:", props)
           return (          
             <div>
