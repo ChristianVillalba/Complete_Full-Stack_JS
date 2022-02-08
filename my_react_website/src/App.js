@@ -28,13 +28,43 @@ class App extends Component {
       <Router>
          <Route 
           path='/admin/users' 
-          component={Users}
-          />
+          render={props => {
+          console.log("Props:", props)
+          return (          
+            <div>
+              {this.props.auth.token ? 
+                <AdminWrapper>
+                  <Users/>
+                </AdminWrapper>
+               : 
+                <LoginWrapper>
+                <Login/>
+                </LoginWrapper>
+              }  
+            </div>
+          )
+        }}
+        />
+
           <Route 
           path='/admin/posts' 
-          component={Posts}
-          />
-
+          render={props => {
+          console.log("Props:", props)
+          return (          
+            <div>
+              {this.props.auth.token ? 
+                <AdminWrapper>
+                  <Posts/>
+                </AdminWrapper>
+               : 
+                <LoginWrapper>
+                <Login/>
+                </LoginWrapper>
+              }  
+            </div>
+          )
+        }}
+        />
 
         <Route exact={true} path="/admin" render={props => {
           console.log("Props:", props)
