@@ -43,6 +43,7 @@ const styles = theme => ({
             duration: theme.transitions.duration.enteringScreen,
         }),
     },
+    appBarSpace: theme.mixins.toolbar,
     drawerPaper: {
         position: "relative",
         whiteSpace: 'noWrap',

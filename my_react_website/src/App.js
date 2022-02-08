@@ -11,7 +11,12 @@ import Portfolio from "./components/Common/Portfolio";
 import Team from "./components/Common/Team";
 import Contact from "./components/Pages/Contact";
 import Login from "./components/Pages/Login";
-import Dashboard from "./components/Pages/Dashboard";
+
+// Admin Pages
+import Dashboard from "./components/Pages/Admin/Dashboard";
+import Users from "./components/Pages/Admin/Users";
+import Posts from "./components/Pages/Admin/Posts";
+
 import AdminWrapper from "./components/AdminWrapper";
 import LoginWrapper from "./components/LoginWrapper";
 
