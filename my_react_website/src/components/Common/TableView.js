@@ -8,7 +8,26 @@ import TableCell from '@material-ui/core/TableCell';
 import Paper from '@material-ui/core/Paper';
 
 class TableView extends Component {
-    render(){}
+    render(){
+        const {rows, columns} = this.props;
+        return(
+            <Paper>
+                <Table>
+                    <TableHead>
+                        <TableRow>
+                            {columns ? 
+                                columns.map((col, i) => {
+                                    return(
+                                        <TableCell key={i}>{col}</TableCell>
+                                    )
+                                })
+                            : null}
+                        </TableRow>
+                    </TableHead>
+                </Table>
+            </Paper>
+        )
+    }
 }
 
 export default TableView;
