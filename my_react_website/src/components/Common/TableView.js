@@ -18,16 +18,29 @@ class TableView extends Component {
                             {columns ? 
                                 columns.map((col, i) => {
                                     return(
-                                        <TableCell key={i}>{col}</TableCell>
+                                        <TableCell key={i}>{col.label}</TableCell>
                                     )
                                 })
                             : null}
                         </TableRow>
                     </TableHead>
+                    <TableBody>
+                        {rows ?
+                            rows.map((row, i) => {
+                                return columns.map((col, colIndex) => {
+                                    return(
+                                    <TableCell>
+                                        {row[col.name]}
+                                    </TableCell>
+                                )
+                                })        
+                            })
+                        : null }
+                    </TableBody>
                 </Table>
             </Paper>
         )
     }
 }
 
-export default TableView;
+export default withStyles(TableView);
