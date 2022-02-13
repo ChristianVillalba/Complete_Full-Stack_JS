@@ -10,6 +10,11 @@ const admin = (state = defaultState, action) => {
                 ...state,
                 user: action.payload
             }
+        case "GOT_POSTS":
+            return {
+                 ...state,
+                user: action.payload
+            }
         default:
             return state
     }
