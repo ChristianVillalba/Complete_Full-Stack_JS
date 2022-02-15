@@ -48,7 +48,7 @@ class App extends Component {
         />
 
         <Route
-          path='/admin/posts/:view'
+          path='/admin/posts/:view/:id'
           render={props => {
             return (
               <div>

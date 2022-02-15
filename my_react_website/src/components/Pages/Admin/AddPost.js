@@ -60,8 +60,11 @@ class AddPost extends Component {
         }
     }
 
-
-
+    componentDidMount(props, state){
+        if(this.props.match.params.view === 'edit' && this.props.match.params.id){
+            this.props.getSinglePost(this.props.match.params.id, this.props.auth.token);
+        }
+    }
 
     render(){
         const {classes} = this.props;
