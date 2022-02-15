@@ -45,6 +45,12 @@ const API = {
         .then(res => {
             success(res);
         });
+    },
+    uploadImage: (data, token, postId, userId, success) => {
+        axios.post(`${host}/api/PostImages/upload?post_id=${postId}&access_token=${token}&user_id=${userId}`, data)
+        .then(res => {
+            success(res);
+        })
     }
 }
 
