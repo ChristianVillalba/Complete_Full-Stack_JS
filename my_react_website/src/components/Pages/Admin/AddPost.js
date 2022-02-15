@@ -1,10 +1,19 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {withStyles} from '@material-ui/core/styles';
 import * as AdminActions from '../../../store/actions/adminActions';
 import Paper from '@material-ui/core/Paper';
-import {withStyles} from '@material-ui/core/styles';
+import {withFormik, Form} from 'formik';
+import {FormikTextField, FormikSelectField} from 'formik-material-fields';
+import Button from '@material-ui/core/Button';
+import SaveIcon from '@material-ui/icons/Save';
+import ImageIcon from '@material-ui/icons/Image';
+import {withRouter} from 'react-router-dom';
 import * as Yup from 'yup';
-import { withFormik } from 'formik';
+import API from '../../../utils/api';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+
 
 const styles = theme => ({
     container: {
@@ -13,6 +22,9 @@ const styles = theme => ({
         flexDirection: 'row wrap',
         width: '100%'
     },
+    formControl: {
+        margin: theme.spacing.unit
+    },
 })
 
 
@@ -20,8 +32,72 @@ class AddPost extends Component {
     render(){
         const {classes} = this.props;
         return (
-            <div className={classes.container}>
-                <h1>Add Post</h1>
+            <div>
+                <Form className={classes.container}>
+                    <Paper className={classes.leftSide}>
+                        <FormikTextField
+                            name="title"
+                            label="Title"
+                            margin="normal"
+                            onChange={e => this.props.setFieldValue('slug', e.target.value.toLowerCase().replace(/ /g, '_'))}
+                            fullWidth
+                        />
+
+                        <FormikTextField
+                            name="slug"
+                            label="Slug"
+                            margin="normal"
+                        />
+
+                        <ReactQuill
+                            value={this.props.values.content}
+                            modules={this.modules}
+                            formats={this.formats}
+                            placeholder="Write some cool stuff"
+                            onChange={val => this.props.setFieldValue('content', val)}
+                        />
+                       
+                    </Paper>
+
+                    <Paper className={classes.rightSide}>
+                        <FormikSelectField
+                            name="status"
+                            label="Status"
+                            margin="normal"
+                            options={[
+                                {label: 'Unpublished', value: false},
+                                {label: 'Published', value: true}
+                            ]}
+                            fullWidth
+                        />
+                        <div className={classes.Save}>
+                        <Button 
+                            variant="contained" 
+                            color="secondary"
+                            onClick={e => {
+                                this.props.handleSubmit();
+                            }}    
+                        ><SaveIcon /> Save</Button>
+                        </div>
+                        {this.props.admin.post.PostImage ?
+                            this.props.admin.post.PostImage.length > 0 ?
+                            <img src={API.makeFileURL(this.props.admin.post.PostImage[0].url, this.props.auth.token)} className={classes.postImage} />
+                            : null
+                            : null}
+                        <div>
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                onClick={e => {
+                                    $('.MyFile').trigger('click');
+                                }}
+                                ><ImageIcon /> Upload Post Image</Button>
+                            <input type="file" style={{display: 'none'}} className="MyFile" onChange={this.uploadImage} />
+                        </div>
+                    </Paper>
+                </Form>
+                
+
             </div>
         )
     }
@@ -32,8 +108,19 @@ const mapStateToProps = state => ({
     admin: state.admin
 });
 
-const mapDispatchToProps = state => ({
-
+const mapDispatchToProps = dispatch => ({
+    addPost: (post, token) => {
+        dispatch(AdminActions.addPost(post, token));
+    },
+    updatePost: (post, token) => {
+        dispatch(AdminActions.updatePost(post, token));
+    },
+    getSinglePost: (id, token) => {
+        dispatch(AdminActions.getSinglePost(id, token));
+    },
+    uploadImage: (data, token, postId, userId) => {
+        dispatch(AdminActions.uploadImage(data, token, postId, userId));
+    }
 });
 
 
