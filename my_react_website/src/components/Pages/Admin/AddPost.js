@@ -22,10 +22,28 @@ const styles = theme => ({
         flexDirection: 'row wrap',
         width: '100%'
     },
+    postImage: {
+        width: '100%'
+    },
+    Save: {
+        marginBottom: theme.spacing.unit * 2
+    },
     formControl: {
         margin: theme.spacing.unit
     },
-})
+    leftSide: {
+        flex: 2,
+        height: '100%',
+        margin: theme.spacing.unit * 1,
+        padding: theme.spacing.unit * 3
+    },
+    rightSide: {
+        flex: 1,
+        height: '100%',
+        margin: theme.spacing.unit * 1,
+        padding: theme.spacing.unit * 3
+    }
+});
 
 
 class AddPost extends Component {
