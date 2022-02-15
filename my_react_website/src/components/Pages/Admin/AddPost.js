@@ -47,6 +47,22 @@ const styles = theme => ({
 
 
 class AddPost extends Component {
+
+    componentDidUpdate(props, state){
+        if(this.props.match.params.view === 'add' && this.props.admin.posts.filter(p => p.title === this.props.values.title).length > 0){
+            const post = this.props.admin.posts.filter(p => p.title === this.props.values.title)[0];
+            this.props.history.push('/admin/posts/edit/' + post.dispatch);
+        }
+
+        if(this.props.admin.post.id !== props.admin.post.id){
+            // When redux state changes post in admin reducer
+            this.props.setValues(this.props.admin.post);
+        }
+    }
+
+
+
+
     render(){
         const {classes} = this.props;
         return (

@@ -27,15 +27,23 @@ class TableView extends Component {
                     <TableBody>
                         {rows ?
                             rows.map((row, i) => {
-                                return columns.map((col, colIndex) => {
-                                    return(
-                                    <TableCell>
-                                        {row[col.name]}
-                                    </TableCell>
+                                return (
+                                    <TableRow>
+                                        {columns.map((col, colIndex) => {
+                                            return (
+                                                <TableCell>
+                                                    {col.name === 'id' ?
+                                                        <Link to={`/admin/posts/edit/${row[col.name]}`} component={RouterLink}>{row[col.name]}</Link>
+                                                        : row[col.name]
+                                                    }
+                                                </TableCell>
+                                            )
+                                        })
+                                        }
+                                    </TableRow>
                                 )
-                                })        
                             })
-                        : null }
+                        : null}
                     </TableBody>
                 </Table>
             </Paper>
