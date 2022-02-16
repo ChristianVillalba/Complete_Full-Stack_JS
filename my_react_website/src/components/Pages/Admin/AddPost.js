@@ -72,6 +72,27 @@ class AddPost extends Component {
         this.props.uploadImage(data, this.props.auth.token, this.props.admin.post.id, this.props.auth.user.userId)
     }
 
+    modules = {
+        toolbar: [
+            ['bold', 'italic', 'underline', 'strike'],
+            [{'header': 1}, {'header': 2}],
+            [{'list': 'ordered'}, {'list': 'bullet'}],
+            [{'indent': '-1'}, {'indent': '+1'}],
+            [{'size': ['small', 'medium', 'large', 'huge']}],
+            [{'color': []}, {'background': []}],
+            ['image'],
+            ['clean']
+
+        ]
+    }
+
+    formats = [
+        'header',
+        'bold', 'italic', 'underline', 'strike', 'blockquote', 'script',
+        'list', 'bullet', 'indent',
+        'link', 'image', 'color', 'code-block'
+    ]
+
     render(){
         const {classes} = this.props;
         return (
