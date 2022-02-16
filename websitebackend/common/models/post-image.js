@@ -2,7 +2,7 @@
 const sharp = require("sharp");
 const fs = require("fs");
 
-const CONTAINER_URL = "api/container/"
+const CONTAINER_URL = "api/ImageFiles/"
 
 module.exports = function(PostImage) {
 

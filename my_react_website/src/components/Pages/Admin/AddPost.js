@@ -134,7 +134,9 @@ class AddPost extends Component {
                                 onClick={e => {
                                     $('.MyFile').trigger('click');
                                 }}
-                                ><ImageIcon /> Upload Post Image</Button>
+                                > <ImageIcon /> 
+                                Upload Post Image
+                            </Button>
                             <input type="file" style={{display: 'none'}} className="MyFile" onChange={this.uploadImage} />
                         </div>
                     </Paper>

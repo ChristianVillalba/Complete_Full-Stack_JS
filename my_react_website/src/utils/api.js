@@ -3,6 +3,9 @@ import axios from "axios";
 const host = "http://localhost:8080/";
 
 const API = {
+    makeFileURL: (url, token) => {
+        return host + url + "?access_token=" + token;
+    },
     login : (email, pass, success) => {
         axios.post(`${host}/api/users/login`, {email: email, password: pass})
         .then(res => {
