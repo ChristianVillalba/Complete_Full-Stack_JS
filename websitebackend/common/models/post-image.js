@@ -12,6 +12,17 @@ module.exports = function(PostImage) {
         if (!fs.existsSync("./server/storage/" + ctx.req.params.container )) {
             fs.existsSync("./server/storage/" + ctx.req.params.container );
         }
+
+        PostImage.find({where: {postId: post_id }}, (fer,files)=> {
+            if (!fer && files) {
+                files.map(fil => {
+                    fil.updateAttributes({postId: null});
+                })
+            }
+        })
+
+
+
         PostImage.app.models.ImageFile.upload(ctx.requ, ctx,result, options, (err, file) => {
             if (err) {
                 cb(err);
