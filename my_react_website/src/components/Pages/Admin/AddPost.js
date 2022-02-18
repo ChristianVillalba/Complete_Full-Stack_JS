@@ -120,7 +120,6 @@ class AddPost extends Component {
                             placeholder="Write some cool stuff"
                             onChange={val => this.props.setFieldValue('content', val)}
                         />
-                       
                     </Paper>
 
                     <Paper className={classes.rightSide}>
