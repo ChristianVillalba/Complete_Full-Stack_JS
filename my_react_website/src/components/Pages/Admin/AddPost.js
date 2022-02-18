@@ -14,7 +14,7 @@ import API from '../../../utils/api';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
-
+/* global $ */
 const styles = theme => ({
     container: {
         margin: theme.spacing.unit * 3,
@@ -148,15 +148,13 @@ class AddPost extends Component {
                             : null
                             : null}
                         <div>
-                            <Button
+                        <Button
                                 variant="contained"
                                 color="primary"
                                 onClick={e => {
                                     $('.MyFile').trigger('click');
                                 }}
-                                > <ImageIcon /> 
-                                Upload Post Image
-                            </Button>
+                                ><ImageIcon /> Upload Post Image</Button>
                             <input type="file" style={{display: 'none'}} className="MyFile" onChange={this.uploadImage} />
                         </div>
                     </Paper>

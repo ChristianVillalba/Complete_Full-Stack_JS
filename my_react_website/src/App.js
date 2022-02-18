@@ -9,9 +9,7 @@ import About from './components/Pages/About';
 import Contact from './components/Pages/Contact';
 import Login from './components/Pages/Login';
 import Blog from './components/Pages/Blog';
-import Single from './components/Pages/Single';
-// import Signup from './components/Pages/Signup';
-import Login from "./components/Pages/Login";
+// import Single from './components/Pages/Single';
 
 // Admin Pages
 import Dashboard from "./components/Pages/Admin/Dashboard";
@@ -122,7 +120,7 @@ class App extends Component {
               )}
             />
 
-            <Route
+            {/* <Route
               path="/blog/:slug"
               exact={true}
               render={props => (
@@ -130,7 +128,7 @@ class App extends Component {
                   <Single {...props} />
                 </PageWrapper>
               )}
-            />
+            /> */}
 
             <Route
               path="/blog"
