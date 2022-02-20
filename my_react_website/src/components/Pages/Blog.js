@@ -5,6 +5,10 @@ import Header from '../Common/Header';
 import image from '../assets/img/about.jpg';
 
 class Blog extends Component {
+    componentDidMount(){
+        this.props.getPosts(0);
+        this.props.getPostCount();
+    }
     render(){
         return (
             <div>
@@ -20,17 +24,18 @@ class Blog extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    // return {
-    //   auth: state.auth
-    // }
-  }
-  
-  const mapDispatchToProps = dispatch => {
-    return {
-  
+const mapStateToProps = state => ({
+    site: state.site
+})
+
+const mapDispatchToProps = dispatch => ({
+    getPosts: (skip) => {
+        dispatch(SiteActions.getPosts(skip));
+    },
+    getPostCount: () => {
+        dispatch(SiteActions.getPostCount());
     }
-  }
+})
 
 export default connect(
     mapStateToProps,
