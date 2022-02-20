@@ -11,3 +11,14 @@ export const getPost = (skip) => {
         })
     }
 }
+
+export const getPostCount = () => {
+    return dispatch => {
+        API.getPostCount(res => {
+            dispatch({
+                type: 'GOT_POST_COUNT',
+                payload: res.data.count
+            });
+        })
+    }
+}

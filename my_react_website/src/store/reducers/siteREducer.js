@@ -6,7 +6,12 @@ const defaultState = {
 
 const site = (state = defaultState, action) => {
     switch(action.type){
-        
+        case 'GOT_POST_COUNT':
+            return {
+                ...state,
+                postCount: action.payload
+            }
+            
         case 'GOT_SITE_POSTS':
             return {
                 ...state,

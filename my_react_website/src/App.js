@@ -120,7 +120,7 @@ class App extends Component {
               )}
             />
 
-            {/* <Route
+            <Route
               path="/blog/:slug"
               exact={true}
               render={props => (
@@ -128,7 +128,7 @@ class App extends Component {
                   <Single {...props} />
                 </PageWrapper>
               )}
-            /> */}
+            />
 
             <Route
               path="/blog"
