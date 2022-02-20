@@ -21,6 +21,20 @@ class Blog extends Component {
                     image={image}
 
                 />
+                <div className="row">
+                        {this.props.site.posts ?
+                            this.props.site.posts.length > 0 ?
+                                this.props.site.posts.map((post, i) => {
+                                    return (
+                                        <BlogItem
+                                            post={post}
+                                            key={i}
+                                        />
+                                    )
+                                })
+                            : null
+                            : null}
+                        </div>
             </div>
         )
     }
