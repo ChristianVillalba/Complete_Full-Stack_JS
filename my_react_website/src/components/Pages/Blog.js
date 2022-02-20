@@ -14,14 +14,17 @@ class Blog extends Component {
     render(){
         return (
             <div>
-                <Header 
+                <Header
                     title="Blog"
                     subtitle="Read all of our stories"
                     showButton={false}
                     image={image}
-
-                />
-                <div className="row">
+               />
+               
+               <section className="bg-light" id="portfolio">
+                    <div className="container">
+                        
+                        <div className="row">
                         {this.props.site.posts ?
                             this.props.site.posts.length > 0 ?
                                 this.props.site.posts.map((post, i) => {
@@ -35,6 +38,20 @@ class Blog extends Component {
                             : null
                             : null}
                         </div>
+                        <div className="row">
+                            <div className="col-md-12">
+                                <div className="text-center">
+                                    {this.props.site.postCount > this.props.site.posts.length ?
+                                        <button className="btn btn-default" onClick={e => {
+                                            this.props.getPosts(this.props.site.posts.length);
+                                        }}>Load More</button>
+                                    : null}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+               
             </div>
         )
     }
