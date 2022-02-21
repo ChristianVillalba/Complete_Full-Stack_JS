@@ -18,6 +18,21 @@ const site = (state = defaultState, action) => {
                 posts: action.skip ? state.posts.concat(action.payload) : action.payload
             }
 
+        case "SET_DEFAULT_POST_DATA":
+            return {
+                ...state,
+                post: action.payload
+            }
+
+        case 'SET_FULL_POST_DATA':
+            return {
+                ...state,
+                post: {
+                    ...state.post,
+                    ...action.payload
+                }
+            }
+
         default:
             return state
     }
