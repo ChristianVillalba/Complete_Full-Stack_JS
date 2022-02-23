@@ -9,7 +9,8 @@ import About from './components/Pages/About';
 import Contact from './components/Pages/Contact';
 import Login from './components/Pages/Login';
 import Blog from './components/Pages/Blog';
-// import Single from './components/Pages/Single';
+import Single from './components/Pages/Single';
+import Signup from './components/Pages/Signup';
 
 // Admin Pages
 import Dashboard from "./components/Pages/Admin/Dashboard";
@@ -84,6 +85,24 @@ class App extends Component {
             </div>
           )
         }}
+        />
+
+      <Route
+          exact={true}
+          path="/signup"
+          render={props => {
+            if(this.props.auth.token){
+              return (
+                <Redirect to="/" />
+              )
+            }else{
+              return (
+                <LoginWrapper>
+                    <Signup />
+                  </LoginWrapper>
+              )
+            }
+          }}   
         />
 
         <Route exact={true} path="/admin" render={props => {
