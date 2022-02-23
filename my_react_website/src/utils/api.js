@@ -43,7 +43,6 @@ const API = {
                         slug: true,
                         content: false
                     }
-                    
                 }
             }
         })
@@ -81,7 +80,19 @@ const API = {
         .then(res => {
             success(res);
         })
-    }
+    },
+    getPostBySlug: (slug, token, success) => {
+        axios.get(`${host}/api/Posts/findOne?access_token=${token}`, {
+            params: {
+                filter: {
+                    where: {slug: slug},
+                    include: {Comments: 'Profile'}
+                }
+            }
+        }).then(res => {
+            success(res);
+        })
+    },
 }
 
 export default API;
