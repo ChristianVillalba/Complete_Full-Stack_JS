@@ -17,9 +17,26 @@ export const login = (email, pass) => {
 
 }
 
-export const register = ( email, pass) => {
-    return {
-        type: "REGISTER",
+export const register = (name, email, pass) => {
+    return dispatch =>{
+        API.register(name, email, pass, res => {
+            console.log("RES", res);
+            if(res.status === 200){
+                dispatch(login(email, pass));
+            }else{
+                if(res){
+                    dispatch({
+                        type: 'SHOW_ERROR',
+                        payload: 'There was an error.  Do you already have an account?'
+                    })
+                }
+            }
+        })
+    } 
+    
+    /*{
+        type: 'REGISTER',
         payload: {email, pass}
     }
+    */
 }

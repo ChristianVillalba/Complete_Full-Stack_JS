@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import PageWrapper from "./components/PageWrapper";
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom';
 import { connect } from "react-redux";
 
 // Pages

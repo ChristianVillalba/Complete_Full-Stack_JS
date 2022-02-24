@@ -24,7 +24,9 @@ class Signup extends Component {
                         <div>
                         <form className="row" onSubmit={e => {
                             e.preventDefault();
-                            this.props.register(this.props.values.name, this.props.values.email, this.props.values.password);
+                            this.props.register(this.props.values.name, 
+                                                this.props.values.email, 
+                                                this.props.values.password);
                         }}>
                             {fields.map((f, i) => {
                                 return (
