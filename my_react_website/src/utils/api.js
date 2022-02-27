@@ -18,6 +18,15 @@ const API = {
             success(res);
         })
     },
+    register: (name, email, pass, success) => {
+        axios.post(`${host}/api/users`, {name: name, email: email, password: pass})
+        .then(res => {
+            success(res);
+        })
+        .catch(err => {
+            success(err);
+        })
+    },
     getPostCount: (success) => {
         axios.get(`${host}/api/Posts/count`)
         .then(res => {
