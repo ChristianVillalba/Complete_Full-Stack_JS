@@ -102,6 +102,18 @@ const API = {
             success(res);
         })
     },
+    postComment: (comment, token, success) => {
+        axios.post(`${host}/api/Comments?access_token=${token}`, comment, {
+            params: {
+                filter: {
+                    include: 'Profile'
+                }
+            }
+        })
+        .then(res => {
+            success(res);
+        })
+    }
 }
 
 export default API;

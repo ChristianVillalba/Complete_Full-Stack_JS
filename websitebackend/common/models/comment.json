@@ -14,7 +14,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "POst":{
+      "type": "belongsTo",
+      "model": "Post",
+      "foreignKey": "PostId"
+    }
+  },
   "acls": [],
   "methods": {}
 }
