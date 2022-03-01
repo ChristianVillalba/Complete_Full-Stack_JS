@@ -4,6 +4,7 @@ import Header from "../Common/Header";
 import API from "../../utils/api";
 import {Link} from 'react-router-dom';
 import CommentBuilder from '../Common/CommentBuilder';
+import * as SiteActions from '../../store/actions/siteActions';
 
 class Single extends Component {
 

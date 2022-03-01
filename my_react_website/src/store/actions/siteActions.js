@@ -1,6 +1,6 @@
 import API from '../../utils/api';
 
-export const getPost = (skip) => {
+export const getPosts = (skip) => {
     return dispatch => {
         API.getSinglePosts(skip, res => {
             dispatch({
