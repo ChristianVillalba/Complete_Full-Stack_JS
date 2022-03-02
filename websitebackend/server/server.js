@@ -53,9 +53,11 @@ app.models.user.find((err,result) => {
 app.models.user.afterRemote("create",(ctx, user, next) => {
   console.log("New User is ", user);
   app.models.Profile.create({
+    name: user.name,
     first_name: user.username,
     created_at: new Date(),
-    userId: user.id
+    userId: user.id,
+    role: "subscriber"
   }, (err, result) => {
     if (!err && result){
       console.log("New Profile created ", result);
