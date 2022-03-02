@@ -12,6 +12,18 @@ const API = {
             success(res)
         })
     },
+    getUser: (userId, token, success) => {
+        console.log("userId", userId);
+        axios.get(`${host}/api/users/${userId}?access_token=${token}`, {
+            params: {
+                filter: {
+                    include: 'Profile'
+                }
+            }
+        }).then(res => {
+            success(res);
+        })
+    },
     getUsers: (token, success) => {
         axios.get(`${host}/api/users?access_token=${token}`)
         .then(res => {
