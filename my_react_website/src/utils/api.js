@@ -114,6 +114,17 @@ const API = {
             success(res);
         })
     },
+    getCommentById: (commentId, token, success) => {
+        axios.get(`${host}/api/Comments/${commentId}?access_token=${token}`, {
+            params: {
+                filter: {
+                    include: 'Profile'
+                }
+            }
+        }).then(res => {
+            success(res);
+        })
+    },
     postComment: (comment, token, success) => {
         axios.post(`${host}/api/Comments?access_token=${token}`, comment, {
             params: {

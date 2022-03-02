@@ -33,6 +33,15 @@ const site = (state = defaultState, action) => {
                 }
             }
 
+        case 'ADDED_COMMENT':
+            return {
+                ...state,
+                post: {
+                    ...state.post,
+                    Comments: state.post.Comments.concat(action.payload)
+                }
+            }
+
         default:
             return state
     }
