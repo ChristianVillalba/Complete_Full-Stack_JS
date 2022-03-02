@@ -1,6 +1,9 @@
 import axios from "axios";
 
-const host = "http://localhost:8080/";
+// const host > when working on Local
+// let host > when working on a Server
+
+let host = "http://localhost:8080/";
 
 const API = {
     makeFileURL: (url, token) => {
