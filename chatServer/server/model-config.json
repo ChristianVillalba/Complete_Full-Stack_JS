@@ -38,5 +38,9 @@
   "Thread": {
     "dataSource": "db",
     "public": true
+  },
+  "Message": {
+    "dataSource": "db",
+    "public": true
   }
 }
