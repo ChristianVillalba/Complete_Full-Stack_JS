@@ -3,7 +3,13 @@ import axios from "axios";
 // const host > when working on Local
 // let host > when working on a Server
 
-let host = "http://localhost:8080/";
+// const host = "http://localhost:8080/";
+let host; 
+if(process.env.NODE_ENV === "development"){
+    host = "http://localhost:8080/";
+}else{
+    host = "demoapi.christianvillalba.uk";
+}
 
 const API = {
     makeFileURL: (url, token) => {
