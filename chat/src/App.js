@@ -1,3 +1,4 @@
+import React from "react";
 import logo from './logo.svg';
 import {
   BrowserRouter,
@@ -16,6 +17,15 @@ class App extends React.Component() {
   render(){
     return (
       <div className="App">
+        <button onClick={e => {
+          e.preventDefault();
+          if(this.props.socket){
+            this.props.socket.send(JSON.stringify({
+              type: "Hello",
+              data: "World"
+            }))
+          }
+        }}> Send Message </button>
         <BrowserRouter>
           <Switch>
             <Route 
