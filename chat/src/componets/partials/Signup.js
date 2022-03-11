@@ -3,13 +3,18 @@ import {connect} from "react-redux";
 import {Link} from "react-router-dom";
 
 class Signup extends Component {
+
     constructor(props){
         super(props);
         this.state = {
             email: "",
-            password: ""
+            password: "",
+            passwordAgain:"",
+            name:"",
+            username:"",
         }
     }
+
     render(){
         return(
             <div className="container" >
@@ -24,31 +29,91 @@ class Signup extends Component {
                                     type: "SIGNUP",
                                     data: {
                                         email: this.state.email,
-                                        password: this.props.state.password
+                                        password: this.props.state.password,
                                     }
                                 }))
                             }
                         }} >
-                            <div className="form-group" >
-                                <label>Email</label>
-                                <input 
-                                    type="email"
-                                    className="form-control"
-                                    placeholder="Email"
-                                    value={this.state.email}
-                                    onChange={e => this.setState({email: e.target.value})}
-                                />
+
+                            <p>Already have an account? <Link to="/login">Login</Link></p>
+
+                            <div className="row" >
+                                <div className="col-md-6" >
+                                    <div className="form-group" >
+                                    <label>Email</label>
+                                    <input 
+                                        type="email"
+                                        className="form-control"
+                                        placeholder="Email"
+                                        value={this.state.email}
+                                        onChange={e => this.setState({email: e.target.value})}
+                                    />
+                                    </div>
+                                </div>
                             </div>
-                            <div className="form-group" >
-                                <label>Password</label>
-                                <input 
-                                    type="password"
-                                    className="form-control"
-                                    placeholder="Password"
-                                    value={this.state.password}
-                                    onChange={e => this.setState({password : e.target.value})}
-                                />
+
+                            <div className="row" >
+                                <div className="col-md-6" >
+                                    <div className="form-group" >
+                                    <label>Name</label>
+                                    <input 
+                                        type="text"
+                                        className="form-control"
+                                        placeholder="Name"
+                                        value={this.state.name}
+                                        onChange={e => this.setState({name: e.target.value})}
+                                    />
+                                    </div>
+                                </div>
                             </div>
+
+                            <div className="row" >
+                                <div className="col-md-6" >
+                                    <div className="form-group" >
+                                    <label>Userame</label>
+                                    <input 
+                                        type="text"
+                                        className="form-control"
+                                        placeholder="Userame"
+                                        value={this.state.username}
+                                        onChange={e => this.setState({username: e.target.value})}
+                                    />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="row" >
+                                <div className="col-md-6" >
+                                    <div className="form-group" >
+                                    <label>Password</label>
+                                    <input 
+                                        type="password"
+                                        className="form-control"
+                                        placeholder="Password"
+                                        value={this.state.password}
+                                        onChange={e => this.setState({password : e.target.value})}
+                                    />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="row" >
+                                <div className="col-md-6" >
+                                    <div className="form-group" >
+                                    <label>Confirm Password</label>
+                                    <input 
+                                        type="password"
+                                        className="form-control"
+                                        placeholder="Confirm Password"
+                                        value={this.state.passwordAgain}
+                                        onChange={e => this.setState({passwordAgain : e.target.value})}
+                                    />
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                            
                             <button className="btn-btn-primary" type="submit">Sign Up</button>
                         </form>
                     </div>
