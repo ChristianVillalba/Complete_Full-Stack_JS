@@ -6,6 +6,7 @@ import * as AuthActions from "../../store/actions/authActions";
 import Login from "../partials/Login";
 import Signup from "../partials/Signup"; 
 
+
 class Auth extends Component {
     render(){
         return (

@@ -4,10 +4,12 @@ import {
   BrowserRouter,
   Switch,
   Route,
-  Link
+  Link,
+  Redirect
 } from "react-router-dom";
 import {connect} from "react-redux";
 import * as ChatActions from "./store/actions/chatActions";
+import Auth from "./componets/pages/Auth";
 
 
 class App extends React.Component() {
@@ -30,20 +32,29 @@ class App extends React.Component() {
           <Switch>
             <Route 
               path='/login'
-              render={props => {
-                return (
-                  <h1>Login</h1>
-                )
-              }}
+              component={Auth}
             />
+            
+             <Route 
+              path='/signup'
+              component={Auth}
+            />
+
             <Route 
               path='/'
               render={props => {
-                return (
+                if(!this.props.token){
+                  return (
+                    <Redirect to="/login" />
+                  )
+                }else{
+                  return (
                   <h1>Root</h1>
                 )
+                }
               }}
             />
+
           </Switch>
         </BrowserRouter>
       </div>
