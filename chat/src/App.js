@@ -10,6 +10,7 @@ import {
 import {connect} from "react-redux";
 import * as ChatActions from "./store/actions/chatActions";
 import Auth from "./componets/pages/Auth";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 
 class App extends React.Component() {
@@ -19,22 +20,14 @@ class App extends React.Component() {
   render(){
     return (
       <div className="App">
-        <button onClick={e => {
-          e.preventDefault();
-          if(this.props.socket){
-            this.props.socket.send(JSON.stringify({
-              type: "Hello",
-              data: "World"
-            }))
-          }
-        }}> Send Message </button>
+
         <BrowserRouter>
           <Switch>
             <Route 
               path='/login'
               component={Auth}
             />
-            
+
              <Route 
               path='/signup'
               component={Auth}
