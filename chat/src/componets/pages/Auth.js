@@ -11,7 +11,7 @@ class Auth extends Component {
     render(){
         return (
             <div className="auth-row">
-                {this.props.match.params === "signup" 
+                {this.props.match.path === "/signup" 
                 ? 
                     <Signup />
                 :

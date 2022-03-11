@@ -7,7 +7,6 @@ class Login extends Component {
         return(
             <div className="form-wrapper" >
                 <h3>Login</h3>
-
             </div>
         )
     }
