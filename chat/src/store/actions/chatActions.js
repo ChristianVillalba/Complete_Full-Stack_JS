@@ -43,6 +43,12 @@ export const setupSocket = (token, userId) => {
                     payload: data.data
                 });
                 break;
+            case "INITIAL_THREADS":
+                dispatch({
+                    type: "INITIAL_THREADS",
+                    payload: data.data
+                });
+                break;
             default:
                 //do nothing
         }

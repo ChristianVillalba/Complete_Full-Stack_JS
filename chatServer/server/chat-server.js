@@ -10,6 +10,18 @@ const clients = [];
 
 ws.on("connection", (ws) => {
 
+    function getInitialThreads(userId){
+        models.Thread.find({where: {}}, (err, threads) => {
+            if (!err && threads){
+                ws.send(JSON.stringify({
+                    type: "INITIAL_THREADS",
+                    data: threads,
+                }))
+            }
+        })
+
+    }
+
     function login(email, pass){
         models.User.login({email: email, password: pass}, (err, result) => {
         if (err) {
@@ -33,6 +45,8 @@ ws.on("connection", (ws) => {
                     }
                     // We add the user Object to our list with the current clients connected
                     clients.push(userObject);
+
+                    getInitialThreads(user.id);
 
                     ws.send(JSON.stringify({
                         type: "LOGGEDIN",
@@ -84,6 +98,7 @@ ws.on("connection", (ws) => {
                                 }
                                 // We add the user Object to our list with the current clients connected
                                 clients.push(userObject);
+                                getInitialThreads(user.id);
                                 // We already set as LOGGEDIN in the app
                                 // ws.send(JSON.stringify({
                                 //     type: "LOGGEDIN",
