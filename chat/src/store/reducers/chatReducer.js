@@ -16,6 +16,11 @@ const chat = (state = defaultState, action) => {
                 ...state,
                 users: action.payload
             }
+        case "ADD_THREAD":
+            return {
+                ...state,
+                threads: state.threads.concat(action.payload)
+            }
         default:
             return state
     }

@@ -25,14 +25,12 @@ ws.on("connection", (ws) => {
                         error: err2
                     }));
                 } else {
-
                     // creates an user Object
                     const userObject = {
                         id: user.id,
                         email: user.email,
                         ws: ws,
                     }
-
                     // We add the user Object to our list with the current clients connected
                     clients.push(userObject);
 
@@ -74,6 +72,29 @@ ws.on("connection", (ws) => {
 
                     })
                     break;
+                case "CONNECT_WITH_TOKEN":
+                    models.User.findById(
+                        parsed.data.userId, (err2, user) => {
+                            if (!err2 &&  user) {
+                                // creates an user Object
+                                const userObject = {
+                                    id: user.id,
+                                    email: user.email,
+                                    ws: ws,
+                                }
+                                // We add the user Object to our list with the current clients connected
+                                clients.push(userObject);
+                                // We already set as LOGGEDIN in the app
+                                // ws.send(JSON.stringify({
+                                //     type: "LOGGEDIN",
+                                //     data: {
+                                //         session: result,
+                                //         user: user
+                                //     },
+                                // }))
+                            }
+                    })
+                    break;
                 case "LOGIN":
                     login(parsed.data.email, parsed.data.password);
                     break;
@@ -108,16 +129,18 @@ ws.on("connection", (ws) => {
                                 users: parsed.data
                             }, (err2, thread) => {
                                 if (!err2 && thread) {
-
-                                    ws.send(JSON.stringify({
-                                        type: "ADD_THREAD",
-                                        data: thread,
-                                    }));
+                                    clients.filter(u => thread.users.indexOf(u.id.toString()) > -1).map(client => {
+                                        client.ws.send(JSON.stringify({
+                                            type: "ADD_THREAD",
+                                            data: thread,
+                                        }));
+                                    })
                                 }
                             });
                         }
                     });
                     break;
+                case "FIND_THREAD":
                 default:
                     console.log("Nothing to see here");
             }
