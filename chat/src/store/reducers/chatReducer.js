@@ -11,6 +11,11 @@ const chat = (state = defaultState, action) => {
             return {
                 socket: action.payload
             }
+        case "GOT_USERS":
+            return {
+                ...state,
+                users: action.payload
+            }
         default:
             return state
     }

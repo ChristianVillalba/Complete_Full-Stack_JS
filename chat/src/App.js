@@ -9,8 +9,12 @@ import {
 } from "react-router-dom";
 import {connect} from "react-redux";
 import * as ChatActions from "./store/actions/chatActions";
+import * as AuthActions from "./store/actions/authActions";
 import Auth from "./componets/pages/Auth";
+import Messenger from "./componets/pages/Messenger";
+
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./assets/css/swag.css"
 
 
 class App extends React.Component() {
@@ -20,17 +24,55 @@ class App extends React.Component() {
   render(){
     return (
       <div className="App">
+        <button onClick={ e => {
+          this.props.logout();
+        }}> Log out </button>
 
         <BrowserRouter>
           <Switch>
             <Route 
               path='/login'
-              component={Auth}
+              render={props => {
+                if(this.props.token){
+                  return (
+                    <Redirect to="/" />
+                  )
+                } else {
+                  return (
+                    <Auth/>
+                  )
+                }
+              }}
             />
 
              <Route 
               path='/signup'
-              component={Auth}
+              render={props => {
+                if(this.props.token){
+                  return (
+                    <Redirect to="/" />
+                  )
+                } else {
+                  return (
+                    <Auth/>
+                  )
+                }
+              }}
+            />
+
+            <Route 
+              path='/:threadId'
+              render={props => {
+                if(!this.props.token){
+                  return (
+                    <Redirect to="/login" />
+                  )
+                }else{
+                  return (
+                  <Messenger />
+                )
+                }
+              }}
             />
 
             <Route 
@@ -42,7 +84,7 @@ class App extends React.Component() {
                   )
                 }else{
                   return (
-                  <h1>Root</h1>
+                  <Messenger />
                 )
                 }
               }}
@@ -64,8 +106,10 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   setupSocket: () => {
     dispatch(ChatActions.setupSocket());
+  },
+  logout: () => {
+    dispatch(AuthActions.logout)
   }
-
 })
 
 export default connect(

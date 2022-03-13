@@ -54,7 +54,9 @@ class Login extends Component {
                                     onChange={e => this.setState({password : e.target.value})}
                                 />
                             </div>
+                            <div className="text-center">
                             <button className="btn-btn-primary" type="submit">Login</button>
+                            </div>
                         </form>
                     </div>
                 </div>
