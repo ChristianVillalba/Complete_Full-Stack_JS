@@ -1,14 +1,33 @@
 import React, {Component} from "react";
+import {connect} from "react-redux";
 
 
 class Message extends Component {
 
     render(){
         return (
-            <h1>Hello Message</h1>
+            <div className={`message-item ${this.props.msg.userId === this.props.user.id ? "msg-right": "msg-left" }`}>
+            <i className="zmdi zmdi-account-circle"/>
+            <div className="chat-bubble">
+                {this.props.msg.content}
+            </div>
+            </div>
         )
     }
 }
         
 
-  export default Message;
+const mapStateToProps = state => ({
+    ...state.auth,
+    ...state.chat
+})
+  
+  
+const mapDispatchToProps = dispatch => ({
+   
+})
+  
+  export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Message);
