@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 import {withRouter, Link} from "react-router-dom";
+import Message from "./Message";
 
 
 class ThreadView extends Component {
@@ -33,7 +34,17 @@ class ThreadView extends Component {
     render(){
         return(
             <div className="main-view">
-                ThreadView
+                {this.props.threads.filter(thread => thread.id === this.props.match.params.threadId).map(thread => {
+                    return(
+                        <div className="message-container" key={i}>
+                            {thread.Message.map((msg,mi) => {
+                                return(
+                                    <Message message={msg} key={mi} />
+                                )
+                            })}
+                        </div>
+                    )
+                })}
             </div>
         )
     }
