@@ -1,3 +1,4 @@
+import { FormikProvider } from "formik";
 import React, {Component} from "react";
 import {connect} from "react-redux";
 import {withRouter, Link} from "react-router-dom";
@@ -12,9 +13,26 @@ class ChatInput extends Component {
         }
     }
 
+    sendMessage = () => {
+        e.preventDefault();
+        const msg = {
+            threadId: this.props.match.params.threadId,
+            userId: this.props.user.id,
+            content: this.state.content,
+            date: new Date()
+        }
+        this.props.socket.send(JSON.stringify({
+            type: "ADD_MESSAGE",
+            threadId: msg.threadId,
+            message: msg
+        }))
+        this.setState({content: ""});
+    }
+
     render(){
         return(
-            <div className="input-view">
+            <form className="input-view" onSubmit={e => this.sendMessage()}>
+                <div className="input-group">
                 <input 
                 type="text" 
                 placeholder="Write your message" 
@@ -22,7 +40,10 @@ class ChatInput extends Component {
                 value={this.state.content}
                 onChange={e => this.setState({content: e.target.value})}
                 />
-            </div>
+                <button className="btn btn-send input-group-append"><i className="zmdi zmdi-send"/> 
+                </button>
+                </div>
+            </form>
         )
     }
 }
