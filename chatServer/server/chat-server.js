@@ -6,9 +6,11 @@ var model = require("./server.js").models;
 const ws = new WebSocket.Server({port: 8080});
 // A list with the current clients connected
 const clients = [];
-const printClientCount = () => {
-    console.log("clients:", clients.length);
-}
+
+// This is to check out that our app works as it should be:
+// const printClientCount = () => {
+//     console.log("clients:", clients.length);
+// }
 
 setInterval(printClientCount,1000);
 
@@ -177,7 +179,24 @@ ws.on("connection", (ws) => {
                         }
                     });
                     break;
-                case "FIND_THREAD":
+                case "THREAD_LOAD":
+                    models.Message.find({where: {
+                        threadId: parsed.data.threadId,
+                    },
+                        order: "date DES",
+                        skip: parsed.data.skip,
+                        limit: 10,
+                        }, (err2, messages) => {
+                            if(!err2 && messages) {
+                                ws.send(JSON.stringify({
+                                    type: "GOT_MESSAGES",
+                                    threadId: parsed.data.threadId,
+                                    messages: messages,
+                                }));
+                            }
+
+                    });
+                    break;
                 default:
                     console.log("Nothing to see here");
             }

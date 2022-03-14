@@ -14,10 +14,24 @@
     },
     "seenBy": {
       "type": "object"
+    },
+    "userId": {
+      "type": "string"
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "Thread": {
+      "type": "belongsTo",
+      "model": "Thread",
+      "foreginKey": "threadId"
+    },
+    "user": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreginKey": "userId"
+    }
+  },
   "acls": [],
   "methods": {}
 }
