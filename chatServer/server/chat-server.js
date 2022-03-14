@@ -6,7 +6,11 @@ var model = require("./server.js").models;
 const ws = new WebSocket.Server({port: 8080});
 // A list with the current clients connected
 const clients = [];
+const printClientCount = () => {
+    console.log("clients:", clients.length);
+}
 
+setInterval(printClientCount,1000);
 
 ws.on("connection", (ws) => {
 
@@ -37,6 +41,8 @@ ws.on("connection", (ws) => {
                         error: err2
                     }));
                 } else {
+                    // gives an id to the ws (WebSocket) itself
+                    ws.uid = user.id + new Date().getTime().toString();
                     // creates an user Object
                     const userObject = {
                         id: user.id,
@@ -60,6 +66,20 @@ ws.on("connection", (ws) => {
         }
     })
 }
+
+
+    ws.on("close", (req) => {
+        console.log("Request close", req);
+        let clientIndex = -1;
+        clients.map((c, i)=> {
+            if (c.ws._closeCode === req){
+                clientIndex = i;
+            }
+        });
+        if(clientIndex > -1){
+            clients.splice(clientIndex, 1);
+        }
+    });
 
     ws.on("message", (message) => {
         console.log("Got a message", JSON.parse(message));
@@ -90,6 +110,8 @@ ws.on("connection", (ws) => {
                     models.User.findById(
                         parsed.data.userId, (err2, user) => {
                             if (!err2 &&  user) {
+                                // gives an id to the ws (WebSocket) itself
+                                ws.uid = user.id + new Date().getTime().toString();
                                 // creates an user Object
                                 const userObject = {
                                     id: user.id,
