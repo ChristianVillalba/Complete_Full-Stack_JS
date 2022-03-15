@@ -1,5 +1,7 @@
 import * as AuthActions from "./authActions";
 
+/* global $ */
+
 export const setupSocket = (token, userId) => {
     return dispatch => {
         // local host uses "ws" instead of "http" protocol:
@@ -66,6 +68,7 @@ export const setupSocket = (token, userId) => {
                     messages: data.messages
                     }
                 });
+                document.getElementById("main-view").scrollTop = document.getElementById("main-view").scrollHight;
                 break;
             default:
                 //do nothing

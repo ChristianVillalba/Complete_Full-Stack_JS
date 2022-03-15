@@ -12,20 +12,24 @@ const clients = [];
 //     console.log("clients:", clients.length);
 // }
 
-setInterval(printClientCount,1000);
-
 ws.on("connection", (ws) => {
 
     function getInitialThreads(userId){
         models.Thread.find({where: {}, include: "Messages"}, (err, threads) => {
             if (!err && threads){
-                ws.send(JSON.stringify({
-                    type: "INITIAL_THREADS",
-                    data: threads,
-                }))
-            }
-        })
-
+                models.User.find({where: {id: {inq: thread.users}}}, (err3,users) => {
+                threads.map((thread, i) => {
+                    thread.Profiles = ussers;
+                    if(i === threads.length -1){
+                        ws.send(JSON.stringify({
+                            type: "INITIAL_THREADS",
+                            data: threads
+                        }));
+                    }
+                });
+            })
+        }
+        });
     }
 
     function login(email, pass){
